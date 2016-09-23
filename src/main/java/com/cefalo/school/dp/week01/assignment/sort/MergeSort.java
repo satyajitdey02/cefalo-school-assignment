@@ -9,18 +9,18 @@ import com.cefalo.school.dp.week01.assignment.io.Output;
  */
 public class MergeSort extends DQAlgorithm {
   @Override
-  protected boolean isBaseCase(Input p) {
-    return (((MergeSortIO) p).getFirst() >= ((MergeSortIO) p).getLast());
+  protected boolean isBaseCase(Input input) {
+    return (((MergeSortIO) input).getFirst() >= ((MergeSortIO) input).getLast());
   }
 
   @Override
-  protected Output conquer(Input p) {
-    return (Output) p;
+  protected Output conquer(Input input) {
+    return (Output) input;
   }
 
   @Override
-  protected Input[] divide(Input p) {
-    MergeSortIO io = (MergeSortIO) p;
+  protected Input[] divide(Input input) {
+    MergeSortIO io = (MergeSortIO) input;
     int first = io.getFirst();
     int last = io.getLast();
     Integer[] a = io.getArr();
@@ -35,12 +35,12 @@ public class MergeSort extends DQAlgorithm {
       return sp;
     }
 
-    return new Input[]{p};
+    return new Input[]{input};
   }
 
   @Override
-  protected Output combine(Input p, Output[] ss) {
-    MergeSortIO io = (MergeSortIO) p;
+  protected Output combine(Input input, Output[] outputs) {
+    MergeSortIO io = (MergeSortIO) input;
     Integer[] arr = io.getArr();
     Integer[] tmpArr = new Integer[io.getArr().length];
     for (int i = io.getFirst(); i <= io.getLast(); i++) {

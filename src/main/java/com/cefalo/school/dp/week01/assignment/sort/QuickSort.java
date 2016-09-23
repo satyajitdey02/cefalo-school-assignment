@@ -8,18 +8,18 @@ import com.cefalo.school.dp.week01.assignment.io.QuickSortIO;
  * Created by satyajit on 9/22/2016.
  */
 public class QuickSort extends DQAlgorithm {
-  protected boolean isBaseCase(Input p) {
-    return (((QuickSortIO) p).getFirst() >= ((QuickSortIO) p).getLast());
+  protected boolean isBaseCase(Input input) {
+    return (((QuickSortIO) input).getFirst() >= ((QuickSortIO) input).getLast());
   }
 
-  protected Output conquer(Input p) {
-    return (Output) p;
+  protected Output conquer(Input input) {
+    return (Output) input;
   }
 
-  protected Input[] divide(Input p) {
-    int first = ((QuickSortIO) p).getFirst();
-    int last = ((QuickSortIO) p).getLast();
-    Integer[] a = ((QuickSortIO) p).getArr();
+  protected Input[] divide(Input input) {
+    int first = ((QuickSortIO) input).getFirst();
+    int last = ((QuickSortIO) input).getLast();
+    Integer[] a = ((QuickSortIO) input).getArr();
     int x = a[first]; // pivot value
     int sp = first;
     for (int i = first + 1; i <= last; i++) {
@@ -34,8 +34,8 @@ public class QuickSort extends DQAlgorithm {
     return ps;
   }
 
-  protected Output combine(Input p, Output[] ss) {
-    return (Output) p;
+  protected Output combine(Input input, Output[] outputs) {
+    return (Output) input;
   }
 
   private void swap(Integer[] a, int first, int last) {

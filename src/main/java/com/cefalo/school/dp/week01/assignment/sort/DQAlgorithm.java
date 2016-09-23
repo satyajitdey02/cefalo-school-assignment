@@ -7,28 +7,28 @@ import com.cefalo.school.dp.week01.assignment.io.Output;
  * Created by satyajit on 9/22/2016.
  */
 public abstract class DQAlgorithm {
-  final public Output sort(Input p) {
-    Input[] pp;
-    if (isBaseCase(p)) {
-      return conquer(p);
+  final public Output sort(Input input) {
+    Input[] inputs;
+    if (isBaseCase(input)) {
+      return conquer(input);
     } else {
-      pp = divide(p);
+      inputs = divide(input);
     }
 
-    Output[] ss = new Output[pp.length];
-    for (int i = 0; i < pp.length; i++) {
-      ss[i] = sort(pp[i]);
+    Output[] outputs = new Output[inputs.length];
+    for (int i = 0; i < inputs.length; i++) {
+      outputs[i] = sort(inputs[i]);
     }
 
-    return combine(p, ss);
+    return combine(input, outputs);
   }
 
-  protected abstract boolean isBaseCase(Input p);
+  protected abstract boolean isBaseCase(Input input);
 
-  protected abstract Output conquer(Input p);
+  protected abstract Output conquer(Input input);
 
-  protected abstract  Input[] divide(Input p);
+  protected abstract  Input[] divide(Input input);
 
-  protected abstract Output combine(Input p, Output[] ss);
+  protected abstract Output combine(Input input, Output[] outputs);
 
 }
