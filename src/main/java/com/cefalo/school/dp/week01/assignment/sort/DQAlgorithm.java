@@ -7,7 +7,7 @@ import com.cefalo.school.dp.week01.assignment.io.Output;
  * Created by satyajit on 9/22/2016.
  */
 public abstract class DQAlgorithm {
-  final public Output sort(Input input) {
+  final public Output solve(Input input) {
     Input[] inputs;
     if (isBaseCase(input)) {
       return conquer(input);
@@ -17,7 +17,7 @@ public abstract class DQAlgorithm {
 
     Output[] outputs = new Output[inputs.length];
     for (int i = 0; i < inputs.length; i++) {
-      outputs[i] = sort(inputs[i]);
+      outputs[i] = solve(inputs[i]);
     }
 
     return combine(input, outputs);

@@ -38,7 +38,7 @@ public class App {
         if (StringUtils.equalsIgnoreCase(MERGE_SORT_FLAG_INPUT, cli.extractOption())) {
           Input in = new MergeSortIO(data, 0, data.length - 1);
           DQAlgorithm template = new MergeSort();
-          MergeSortIO mout = (MergeSortIO) template.sort(in);
+          MergeSortIO mout = (MergeSortIO) template.solve(in);
           System.out.println("Merge Sort Output:" + Arrays.toString(mout.getArr()));
           continue;
         }
@@ -46,7 +46,7 @@ public class App {
         if (StringUtils.equalsIgnoreCase(QUICK_SORT_FLAG_INPUT, cli.extractOption())) {
           Input in = new QuickSortIO(data, 0, data.length - 1);
           DQAlgorithm template = new QuickSort();
-          QuickSortIO qout = (QuickSortIO) template.sort(in);
+          QuickSortIO qout = (QuickSortIO) template.solve(in);
           System.out.println("Quick Sort Output:" + Arrays.toString(qout.getArr()));
           continue;
         }
