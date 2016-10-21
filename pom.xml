@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.cefalo.school.dp</groupId>
-  <artifactId>assignment</artifactId>
+  <artifactId>cefalo-school-assignment</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
