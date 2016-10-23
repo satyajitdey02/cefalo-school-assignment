@@ -11,32 +11,17 @@ public class Enigma {
     Integer input = 1;
     System.out.println("input = " + input);
 
-    Map<Integer, Integer> plugBoard = new HashMap<Integer, Integer>();
-    for (int i = 1; i <= 26; i++) {
-      plugBoard.put(i, i);
-    }
+    PlugBoard plugBoard = new PlugBoard();
+    RightMotor rightMotor = new RightMotor();
+    MiddleRotor middleRotor = new MiddleRotor();
+    LeftRotor leftRotor = new LeftRotor();
+    Reflector reflector = new Reflector();
 
-    Map<Integer, Integer> fastestRotor = new HashMap<Integer, Integer>();
-    for (int i = 1; i <= 26; i++) {
-      fastestRotor.put(i, i);
-    }
+    int output = plugBoard.getOutput(rightMotor.get(middleRotor.get(leftRotor.get(
+        reflector.get(reflector.get(middleRotor.get(rightMotor.getOutput())))))));
 
-    Map<Integer, Integer> slowerRotor = new HashMap<Integer, Integer>();
-    for (int i = 1; i <= 26; i++) {
-      slowerRotor.put(i, i);
-    }
 
-    Map<Integer, Integer> slowestRotor = new HashMap<Integer, Integer>();
-    for (int i = 1; i <= 26; i++) {
-      slowestRotor.put(i, i);
-    }
-
-    Map<Integer, Integer> reflector = new HashMap<Integer, Integer>();
-    for (int i = 1; i <= 26; i++) {
-      reflector.put(i, i);
-    }
-
-    Integer outgoingPlugBoardOutput = plugBoard.get(input);
+   /* Integer outgoingPlugBoardOutput = plugBoard.get(input);
     System.out.println("outgoingPlugBoardOutput = " + outgoingPlugBoardOutput);
 
 
@@ -60,9 +45,9 @@ public class Enigma {
     System.out.println("incomingFasterRotorOutput = " + incomingFasterRotorOutput);
 
     Integer incomingFastestRotorOutput = fastestRotor.get(incomingFasterRotorOutput);
-    System.out.println("incomingFastestRotorOutput = " + incomingFastestRotorOutput);
+    System.out.println("incomingFastestRotorOutput = " + incomingFastestRotorOutput);*/
 
-    Integer output = plugBoard.get(incomingFastestRotorOutput);
-    System.out.println("output = " + output);
+        /*Integer output = plugBoard.get(incomingFastestRotorOutput);
+        System.out.println("output = " + output);*/
   }
 }

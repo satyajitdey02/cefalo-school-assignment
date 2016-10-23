@@ -3,12 +3,12 @@ package com.cefalo.school.dp.enigma;
 import java.util.HashMap;
 
 /**
- * Created by satyajit on 10/21/2016.
+ * Created by satyajit on 10/22/16.
  */
-public class RightMotor extends HashMap<Integer, Integer> {
+public class MiddleRotor extends HashMap<Integer, Integer> {
   private Integer index;
 
-  public RightMotor() {
+  public MiddleRotor() {
     for (int i = 1; i <= 26; i++) {
       put(i, i);
     }
