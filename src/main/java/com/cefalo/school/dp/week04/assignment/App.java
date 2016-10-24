@@ -19,6 +19,21 @@ import javafx.stage.Stage;
 
 /**
  * Created by satyajit on 10/23/16.
+ *
+ * valid Fields to Test-
+ * Email: satyajit.dey@cefalo.com
+ * Password: 1234567(Minimum 7 Chars)
+ * Confirm Password: 1234567(Minimum 7 Chars)
+ * First Name: Satyajit
+ * Last Name: Dey
+ * Gender: Male
+ * Married: Checked
+ * Address: Rayer Bazar
+ * City: Dhaka
+ * State: Dhaka
+ * ZIP Code: 1207
+ * Phone: +88029131954
+ * Mobile Phone: +8801713279154
  */
 public class App extends Application {
 
@@ -42,22 +57,19 @@ public class App extends Application {
 
     /*Custom Login Field Group Component*/
     FxComponent loginFieldGroup = new FxFieldGroup();
-    FxComponent email = new FxTextField("Email");
+    FxComponent email = new FxTextField("Email*");
     loginFieldGroup.add(email);
 
-    FxComponent password = new FxPasswordField("Password");
+    FxComponent password = new FxPasswordField();
     loginFieldGroup.add(password);
-
-    FxComponent confirmPassword = new FxPasswordField("Confirm Password");
-    loginFieldGroup.add(confirmPassword);
     form.add(loginFieldGroup);
 
     /*Custom Basic Info Field Group Component*/
     FxComponent basicInfoFieldGroup = new FxFieldGroup();
-    final FxComponent firstName = new FxTextField("First Name");
+    final FxComponent firstName = new FxTextField("First Name*");
     basicInfoFieldGroup.add(firstName);
 
-    FxComponent lastName = new FxTextField("last Name");
+    FxComponent lastName = new FxTextField("Last Name*");
     basicInfoFieldGroup.add(lastName);
 
     ObservableList<FxComboItem> data =
@@ -76,25 +88,25 @@ public class App extends Application {
 
     /*Custom Address Field Group Component*/
     FxComponent addressFieldGroup = new FxFieldGroup();
-    FxComponent address = new FxTextField("Address");
+    FxComponent address = new FxTextField("Address*");
     addressFieldGroup.add(address);
 
-    FxComponent city = new FxTextField("City");
+    FxComponent city = new FxTextField("City*");
     addressFieldGroup.add(city);
 
-    FxComponent state = new FxTextField("State");
+    FxComponent state = new FxTextField("State*");
     addressFieldGroup.add(state);
 
-    FxComponent zipCode = new FxTextField("ZIP Code");
+    FxComponent zipCode = new FxTextField("ZIP Code*");
     addressFieldGroup.add(zipCode);
     form.add(addressFieldGroup);
 
     /*Custom Contacts Field Group Component*/
     FxComponent contactFieldGroup = new FxFieldGroup();
-    FxComponent phone = new FxPhoneNumberField("Phone");
+    FxComponent phone = new FxPhoneNumberField("Phone*");
     contactFieldGroup.add(phone);
 
-    FxComponent mobilePhone = new FxPhoneNumberField("Mobile Phone");
+    FxComponent mobilePhone = new FxPhoneNumberField("Mobile Phone*");
     contactFieldGroup.add(mobilePhone);
 
     form.add(contactFieldGroup);

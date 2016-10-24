@@ -6,24 +6,36 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;
-import org.apache.commons.lang.StringUtils;
+import javafx.scene.layout.VBox;
 
 /**
  * Created by satyajit on 10/22/16.
  */
-public class FxPasswordField extends HBox implements FxComponent {
-  private Label label;
+public class FxPasswordField extends VBox implements FxComponent {
+  private HBox hBoxPassword;
+  private Label labelPassword;
   private PasswordField passwordField;
 
-  private FxPasswordField() {
+  private HBox hBoxConfirmPassword = new HBox();
+  private Label labelConfirmPassword;
+  private PasswordField confirmPasswordField;
 
+  public FxPasswordField() {
+    this("Password*", "Confirm Password*");
   }
 
-  public FxPasswordField(String labelText) {
-    this.label = new Label(labelText);
+  public FxPasswordField(String passwordLabel, String confirmPasswordLabel) {
+    this.hBoxPassword = new HBox();
+    this.labelPassword = new Label(passwordLabel);
     this.passwordField = new PasswordField();
-    getChildren().addAll(this.label, this.passwordField);
+    this.hBoxPassword.getChildren().addAll(this.labelPassword, this.passwordField);
 
+    this.hBoxConfirmPassword = new HBox();
+    this.labelConfirmPassword = new Label(confirmPasswordLabel);
+    this.confirmPasswordField = new PasswordField();
+    this.hBoxConfirmPassword.getChildren().addAll(this.labelConfirmPassword, this.confirmPasswordField);
+
+    getChildren().addAll(this.hBoxPassword, this.hBoxConfirmPassword);
     setDefaultConfigs();
   }
 
@@ -44,17 +56,24 @@ public class FxPasswordField extends HBox implements FxComponent {
   }
 
   public boolean validate() {
-    return FieldValidator.validatePassword(getPassword());
+    return FieldValidator.validatePassword(this.passwordField.getText(),
+        this.confirmPasswordField.getText());
   }
 
   private void setDefaultConfigs() {
-    setSpacing(5);
-    setAlignment(Pos.CENTER_LEFT);
-    setPadding(new Insets(5, 5, 5, 5));
+    setStyle("-fx-alignment: center-left;-fx-spacing: 5;-fx-padding: 5");
+    this.hBoxPassword.setStyle("-fx-alignment: center-left;-fx-spacing: 5;-fx-padding: 5");
+    this.hBoxConfirmPassword.setStyle("-fx-alignment: center-left;-fx-spacing: 5;-fx-padding: 5");
+
 
     this.passwordField.setPrefSize(250, 30);
     this.passwordField.setStyle("-fx-font-size: 15pt;");
 
-    this.label.setStyle("-fx-font-size: 15pt;");
+    this.labelPassword.setStyle("-fx-font-size: 15pt;");
+
+    this.confirmPasswordField.setPrefSize(250, 30);
+    this.confirmPasswordField.setStyle("-fx-font-size: 15pt;");
+
+    this.labelConfirmPassword.setStyle("-fx-font-size: 15pt;");
   }
 }

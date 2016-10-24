@@ -40,8 +40,17 @@ public class FieldValidator {
         checkRegEx(Pattern.compile(ZIP_CODE_REGEX), zipCode);
   }
 
-  public static boolean validatePassword(String password) {
-    return StringUtils.isNotBlank(password) && password.length() > 6;
+  public static boolean validatePassword(String password, String confirmPassword) {
+    if(StringUtils.isBlank(password) || StringUtils.isBlank(confirmPassword)) {
+      System.out.println("pass blank");
+      return false;
+    }
+
+    if(password.length() < 6 || confirmPassword.length() < 6) {
+      return false;
+    }
+
+    return StringUtils.equals(password, confirmPassword);
   }
 
   private static boolean checkRegEx(Pattern p, String str) {
