@@ -1,8 +1,7 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.utils.FieldValidator;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;
@@ -55,9 +54,8 @@ public class FxPasswordField extends VBox implements FxComponent {
     throw new UnsupportedOperationException("No child associated with leaf component.");
   }
 
-  public boolean validate() {
-    return FieldValidator.validatePassword(this.passwordField.getText(),
-        this.confirmPasswordField.getText());
+  public ValidationResponse validate() {
+    return FieldValidator.validatePassword(this.passwordField.getText(), this.confirmPasswordField.getText());
   }
 
   private void setDefaultConfigs() {

@@ -1,6 +1,8 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
 import com.cefalo.school.dp.week04.assignment.fx.models.FxComboItem;
+import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -55,8 +57,8 @@ public class FxComboBox extends HBox implements FxComponent {
     throw new UnsupportedOperationException("No child associated with leaf component.");
   }
 
-  public boolean validate() {
-    return getSelectedItem().getKey() != -1;
+  public ValidationResponse validate() {
+   return FieldValidator.validateComboEntry(this.label.getText(), getSelectedItem().getKey());
   }
 
   private void setDefaultConfigs() {

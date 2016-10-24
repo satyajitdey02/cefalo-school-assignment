@@ -1,13 +1,12 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
+import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import org.apache.commons.lang.StringUtils;
 
 /**
  * Created by satyajit on 10/22/16.
@@ -44,8 +43,8 @@ public class FxTextField extends HBox implements FxComponent {
     throw new UnsupportedOperationException("No child associated with leaf component.");
   }
 
-  public boolean validate() {
-    return StringUtils.isNotBlank(this.textField.getText());
+  public ValidationResponse validate() {
+    return FieldValidator.checkForEmptyField(this.label.getText(), this.textField.getText());
   }
 
   private void setDefaultConfigs() {

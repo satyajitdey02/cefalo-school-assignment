@@ -4,12 +4,12 @@ import com.cefalo.school.dp.week04.assignment.fx.containers.FxFieldGroup;
 import com.cefalo.school.dp.week04.assignment.fx.containers.FxForm;
 import com.cefalo.school.dp.week04.assignment.fx.controls.*;
 import com.cefalo.school.dp.week04.assignment.fx.models.FxComboItem;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 /**
  * Created by satyajit on 10/23/16.
- *
+ * <p/>
  * valid Fields to Test-
  * Email: satyajit.dey@cefalo.com
  * Password: 1234567(Minimum 7 Chars)
@@ -42,14 +42,14 @@ public class App extends Application {
   }
 
   @Override
-  public void start(Stage stage) throws Exception {
+  public void start(final Stage stage) throws Exception {
     stage.setTitle("Form Validation");
 
     VBox layout = new VBox();
     layout.autosize();
     layout.setStyle("-fx-background-color: ghostwhite; -fx-padding: 5; -fx-spacing: 5;-fx-alignment: center;");
 
-    Scene scene = new Scene(layout, Color.LINEN);
+    Scene scene = new Scene(layout, Color.ANTIQUEWHITE);
     stage.setScene(scene);
 
     /*Custom Form Component*/
@@ -57,7 +57,7 @@ public class App extends Application {
 
     /*Custom Login Field Group Component*/
     FxComponent loginFieldGroup = new FxFieldGroup();
-    FxComponent email = new FxTextField("Email*");
+    FxComponent email = new FxEmailField("Email*");
     loginFieldGroup.add(email);
 
     FxComponent password = new FxPasswordField();
@@ -115,12 +115,8 @@ public class App extends Application {
     FxButton button = new FxButton("Save", Pos.BOTTOM_LEFT);
     button.onClickHandler(new EventHandler<ActionEvent>() {
       public void handle(ActionEvent event) {
-        if (form.validate()) {
-          System.out.println("All fields are validated.");
-          return;
-        }
-
-        System.out.println("Invalid fields");
+        ValidationResponse response = form.validate();
+        FxDialog.show(stage, response);
       }
     });
 

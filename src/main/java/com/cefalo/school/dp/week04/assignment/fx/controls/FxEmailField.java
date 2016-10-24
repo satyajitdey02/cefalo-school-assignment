@@ -1,6 +1,7 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.utils.FieldValidator;
+import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -42,8 +43,8 @@ public class FxEmailField extends HBox implements FxComponent {
     throw new UnsupportedOperationException("No child associated with leaf component.");
   }
 
-  public boolean validate() {
-    return FieldValidator.validateEmail(getEmail());
+  public ValidationResponse validate() {
+    return FieldValidator.validateEmail(this.label.getText(), this.textField.getText());
   }
 
   private void setDefaultConfigs() {

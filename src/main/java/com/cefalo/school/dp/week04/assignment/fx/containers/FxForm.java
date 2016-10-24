@@ -1,8 +1,8 @@
 package com.cefalo.school.dp.week04.assignment.fx.containers;
 
 import com.cefalo.school.dp.week04.assignment.fx.controls.FxComponent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationStatus;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -39,13 +39,18 @@ public class FxForm extends VBox implements FxComponent {
     this.components.get(index);
   }
 
-  public boolean validate() {
-    boolean result = true;
-    for(FxComponent component : components) {
-      result = result && component.validate();
+  public ValidationResponse validate() {
+    ValidationResponse response = new ValidationResponse(ValidationStatus.SUCCESS);
+    for (FxComponent component : components) {
+      ValidationStatus status = component.validate().getStatus();
+      List<String> messages = component.validate().getMessages();
+      if (status == ValidationStatus.ERROR) {
+        response.setStatus(status);//Overriding same value inside iteration. Need to find a better solution
+        response.getMessages().addAll(messages);
+      }
     }
 
-    return result;
+    return response;
   }
 
   private void setDefaultConfigs(String formTitle) {

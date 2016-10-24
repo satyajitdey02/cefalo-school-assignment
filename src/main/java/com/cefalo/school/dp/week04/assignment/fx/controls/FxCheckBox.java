@@ -1,5 +1,7 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
+import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.week04.assignment.validators.ValidationStatus;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
@@ -41,8 +43,8 @@ public class FxCheckBox extends HBox implements FxComponent {
     throw new UnsupportedOperationException("No child associated with leaf component.");
   }
 
-  public boolean validate() {
-    return true;
+  public ValidationResponse validate() {
+    return new ValidationResponse(ValidationStatus.SUCCESS);
   }
 
   private void setDefaultConfigs() {
