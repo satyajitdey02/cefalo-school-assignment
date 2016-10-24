@@ -19,18 +19,27 @@ public class FxButton extends HBox {
 
   public FxButton(String label) {
     this.button = new Button(label);
-    setAlignment(Pos.BOTTOM_LEFT);
     getChildren().add(this.button);
-    setPadding(new Insets(10, 10, 10, 10));
+
+    setDefaultConfigs();
   }
 
   public FxButton(String label, Pos alignment) {
     this.button = new Button(label);
-    setAlignment(alignment);
     getChildren().add(this.button);
+
+    setDefaultConfigs();
   }
 
   public void onClickHandler(EventHandler<ActionEvent> eventHandler) {
     this.button.setOnAction(eventHandler);
+  }
+
+  private void setDefaultConfigs() {
+    setAlignment(Pos.BOTTOM_LEFT);
+    setPadding(new Insets(10, 10, 10, 10));
+    setSpacing(50);
+
+    this.button.setStyle("-fx-font-size: 15pt;");
   }
 }

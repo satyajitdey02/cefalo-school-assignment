@@ -2,6 +2,7 @@ package com.cefalo.school.dp.week04.assignment.fx.controls;
 
 import com.cefalo.school.dp.week04.assignment.utils.FieldValidator;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;
@@ -11,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
  * Created by satyajit on 10/22/16.
  */
 public class FxPasswordField extends HBox implements FxComponent {
+  private Label label;
   private PasswordField passwordField;
 
   private FxPasswordField() {
@@ -18,10 +20,11 @@ public class FxPasswordField extends HBox implements FxComponent {
   }
 
   public FxPasswordField(String labelText) {
-    Label label = new Label(labelText);
+    this.label = new Label(labelText);
     this.passwordField = new PasswordField();
-    getChildren().addAll(label, this.passwordField);
-    setPadding(new Insets(5, 5, 5, 5));
+    getChildren().addAll(this.label, this.passwordField);
+
+    setDefaultConfigs();
   }
 
   public String getPassword() {
@@ -42,5 +45,16 @@ public class FxPasswordField extends HBox implements FxComponent {
 
   public boolean validate() {
     return FieldValidator.validatePassword(getPassword());
+  }
+
+  private void setDefaultConfigs() {
+    setSpacing(5);
+    setAlignment(Pos.CENTER_LEFT);
+    setPadding(new Insets(5, 5, 5, 5));
+
+    this.passwordField.setPrefSize(250, 30);
+    this.passwordField.setStyle("-fx-font-size: 15pt;");
+
+    this.label.setStyle("-fx-font-size: 15pt;");
   }
 }

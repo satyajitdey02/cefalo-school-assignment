@@ -1,6 +1,7 @@
 package com.cefalo.school.dp.week04.assignment.fx.controls;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -9,6 +10,7 @@ import javafx.scene.layout.HBox;
  * Created by satyajit on 10/23/16.
  */
 public class FxCheckBox extends HBox implements FxComponent {
+  private Label label;
   private CheckBox checkBox;
 
   private FxCheckBox() {
@@ -16,10 +18,11 @@ public class FxCheckBox extends HBox implements FxComponent {
   }
 
   public FxCheckBox(String labelText) {
-    Label label = new Label(labelText);
+    this.label = new Label(labelText);
     this.checkBox = new CheckBox();
-    getChildren().addAll(label, this.checkBox);
-    setPadding(new Insets(5,5,5,5));
+    getChildren().addAll(this.label, this.checkBox);
+
+    setDefaultConfigs();
   }
 
   public boolean isSelected() {
@@ -40,5 +43,13 @@ public class FxCheckBox extends HBox implements FxComponent {
 
   public boolean validate() {
     return true;
+  }
+
+  private void setDefaultConfigs() {
+    setSpacing(5);
+    setAlignment(Pos.CENTER_LEFT);
+    setPadding(new Insets(5, 5, 5, 5));
+
+    this.label.setStyle("-fx-font-size: 15pt;");
   }
 }

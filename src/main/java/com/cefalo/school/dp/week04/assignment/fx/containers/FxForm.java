@@ -23,13 +23,12 @@ public class FxForm extends VBox implements FxComponent {
   }
 
   public FxForm(String title) {
-    configForm(title);
+    setDefaultConfigs(title);
   }
 
   public void add(FxComponent component) {
     this.components.add(component);
     getChildren().add((Node) component);
-    setPadding(new Insets(10, 10, 10, 10));
   }
 
   public void remove(FxComponent component) {
@@ -49,9 +48,8 @@ public class FxForm extends VBox implements FxComponent {
     return result;
   }
 
-  private void configForm(String formTitle) {
-    setAlignment(Pos.CENTER);
-    setPadding(new Insets(25));
+  private void setDefaultConfigs(String formTitle) {
+    setStyle("-fx-background-color: ghostwhite; -fx-padding: 5; -fx-spacing: 10;-fx-alignment: center");
     Text txtTitle = new Text(formTitle);
     txtTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
   }

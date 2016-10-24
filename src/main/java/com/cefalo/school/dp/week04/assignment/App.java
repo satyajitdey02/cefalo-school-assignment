@@ -9,8 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -28,12 +28,19 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    VBox root = new VBox();
-    root.autosize();
-    Scene scene = new Scene(root, Color.LINEN);
+    stage.setTitle("Form Validation");
+
+    VBox layout = new VBox();
+    layout.autosize();
+    layout.setStyle("-fx-background-color: ghostwhite; -fx-padding: 5; -fx-spacing: 5;-fx-alignment: center;");
+
+    Scene scene = new Scene(layout, Color.LINEN);
     stage.setScene(scene);
 
+    /*Custom Form Component*/
     final FxComponent form = new FxForm("Form");
+
+    /*Custom Login Field Group Component*/
     FxComponent loginFieldGroup = new FxFieldGroup();
     FxComponent email = new FxTextField("Email");
     loginFieldGroup.add(email);
@@ -45,9 +52,9 @@ public class App extends Application {
     loginFieldGroup.add(confirmPassword);
     form.add(loginFieldGroup);
 
+    /*Custom Basic Info Field Group Component*/
     FxComponent basicInfoFieldGroup = new FxFieldGroup();
     final FxComponent firstName = new FxTextField("First Name");
-
     basicInfoFieldGroup.add(firstName);
 
     FxComponent lastName = new FxTextField("last Name");
@@ -55,7 +62,7 @@ public class App extends Application {
 
     ObservableList<FxComboItem> data =
         FXCollections.observableArrayList(
-            new FxComboItem(-1, "Select gendre"),
+            new FxComboItem(-1, "Select Gender"),
             new FxComboItem(0, "Male"),
             new FxComboItem(1, "Female"),
             new FxComboItem(2, "Other"));
@@ -67,6 +74,7 @@ public class App extends Application {
 
     form.add(basicInfoFieldGroup);
 
+    /*Custom Address Field Group Component*/
     FxComponent addressFieldGroup = new FxFieldGroup();
     FxComponent address = new FxTextField("Address");
     addressFieldGroup.add(address);
@@ -81,23 +89,18 @@ public class App extends Application {
     addressFieldGroup.add(zipCode);
     form.add(addressFieldGroup);
 
+    /*Custom Contacts Field Group Component*/
     FxComponent contactFieldGroup = new FxFieldGroup();
-    FxComponent dayPhone = new FxPhoneNumberField("Day Phone");
-    contactFieldGroup.add(dayPhone);
-
-    FxComponent eveningPhone = new FxPhoneNumberField("Evening Phone");
-    contactFieldGroup.add(eveningPhone);
+    FxComponent phone = new FxPhoneNumberField("Phone");
+    contactFieldGroup.add(phone);
 
     FxComponent mobilePhone = new FxPhoneNumberField("Mobile Phone");
     contactFieldGroup.add(mobilePhone);
 
-    FxComponent fax = new FxPhoneNumberField("FAX");
-    contactFieldGroup.add(fax);
     form.add(contactFieldGroup);
+    layout.getChildren().add((Node) form);
 
-    root.getChildren().add((Node) form);
-
-    FxButton button = new FxButton("Validate", Pos.BOTTOM_RIGHT);
+    FxButton button = new FxButton("Save", Pos.BOTTOM_LEFT);
     button.onClickHandler(new EventHandler<ActionEvent>() {
       public void handle(ActionEvent event) {
         if (form.validate()) {
@@ -109,7 +112,7 @@ public class App extends Application {
       }
     });
 
-    root.getChildren().add(button);
+    layout.getChildren().add(button);
     stage.show();
   }
 }

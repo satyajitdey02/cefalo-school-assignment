@@ -2,6 +2,7 @@ package com.cefalo.school.dp.week04.assignment.fx.controls;
 
 import com.cefalo.school.dp.week04.assignment.utils.FieldValidator;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -11,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
  * Created by satyajit on 10/23/16.
  */
 public class FxPhoneNumberField extends HBox implements FxComponent {
+  private Label label;
   private TextField textField;
 
   private FxPhoneNumberField() {
@@ -18,10 +20,11 @@ public class FxPhoneNumberField extends HBox implements FxComponent {
   }
 
   public FxPhoneNumberField(String labelText) {
-    Label label = new Label(labelText);
+    this.label = new Label(labelText);
     this.textField = new TextField();
-    getChildren().addAll(label, this.textField);
-    setPadding(new Insets(5, 5, 5, 5));
+    getChildren().addAll(this.label, this.textField);
+
+    setDefaultConfigs();
   }
 
   public String getPhoneNumber() {
@@ -42,5 +45,16 @@ public class FxPhoneNumberField extends HBox implements FxComponent {
 
   public boolean validate() {
     return FieldValidator.validatePhone(getPhoneNumber());
+  }
+
+  private void setDefaultConfigs() {
+    setSpacing(5);
+    setAlignment(Pos.CENTER_LEFT);
+    setPadding(new Insets(5, 5, 5, 5));
+
+    this.textField.setPrefSize(250, 30);
+    this.textField.setStyle("-fx-font-size: 15pt;");
+
+    this.label.setStyle("-fx-font-size: 15pt;");
   }
 }

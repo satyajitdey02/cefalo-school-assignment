@@ -2,8 +2,12 @@ package com.cefalo.school.dp.week04.assignment.fx.containers;
 
 import com.cefalo.school.dp.week04.assignment.fx.controls.FxComponent;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +21,8 @@ public class FxFieldGroup extends VBox implements FxComponent {
   public void add(FxComponent component) {
     this.components.add(component);
     getChildren().add((Node) component);
-    setStyle("-fx-border-color: black;");
-    setPadding(new Insets(10,10,10,10));
+
+    setDefaultConfigs();
   }
 
   public void remove(FxComponent component) {
@@ -36,5 +40,11 @@ public class FxFieldGroup extends VBox implements FxComponent {
     }
 
     return result;
+  }
+
+  private void setDefaultConfigs() {
+    setStyle("-fx-border-color: black;");
+    setPadding(new Insets(10,10,10,10));
+    setSpacing(5);
   }
 }
