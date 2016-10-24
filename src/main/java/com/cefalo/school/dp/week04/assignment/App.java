@@ -22,8 +22,8 @@ import javafx.stage.Stage;
  * <p/>
  * valid Fields to Test-
  * Email: satyajit.dey@cefalo.com
- * Password: 1234567(Minimum 7 Chars)
- * Confirm Password: 1234567(Minimum 7 Chars)
+ * Password: 1234567(Minimum 6 Chars)
+ * Confirm Password: 1234567(Minimum 6 Chars)
  * First Name: Satyajit
  * Last Name: Dey
  * Gender: Male
