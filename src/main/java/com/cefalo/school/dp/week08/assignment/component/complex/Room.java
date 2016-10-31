@@ -1,8 +1,9 @@
-package com.cefalo.school.dp.week08.assignment;
+package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Ceiling;
-import com.cefalo.school.dp.week08.assignment.component.Floor;
-import com.cefalo.school.dp.week08.assignment.component.Wall;
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
+import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
+import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
+import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class Room {
+public abstract class Room implements Buildable{
   private Floor floor;
   private Ceiling ceiling;
   private List<Wall> walls = new ArrayList<Wall>();

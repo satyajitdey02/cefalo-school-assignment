@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week08.assignment.component;
+package com.cefalo.school.dp.week08.assignment.component.measurement;
 
 /**
  * Created by satyajit on 10/31/16.

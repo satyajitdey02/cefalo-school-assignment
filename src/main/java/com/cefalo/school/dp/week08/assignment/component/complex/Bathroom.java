@@ -1,8 +1,8 @@
-package com.cefalo.school.dp.week08.assignment;
+package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Ceiling;
-import com.cefalo.school.dp.week08.assignment.component.Floor;
-import com.cefalo.school.dp.week08.assignment.component.Wall;
+import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
+import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
+import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 
 import java.util.List;
 
@@ -33,5 +33,10 @@ public class Bathroom extends Room {
 
   public void setBathtub(String bathtub) {
     this.bathtub = bathtub;
+  }
+
+  @Override
+  public String toString() {
+    return super.toString();
   }
 }
