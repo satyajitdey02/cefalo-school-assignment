@@ -1,16 +1,19 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
+import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
+import com.cefalo.school.dp.week08.assignment.component.basic.Handrails;
 
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Balcony {
+public class Balcony implements Buildable{
 
   private Floor floor;
-  private String handrails;
+  private Handrails handrails;
 
-  public Balcony(Floor floor, String handrails) {
+  public Balcony(Floor floor, Handrails handrails) {
     this.floor = floor;
     this.handrails = handrails;
   }
@@ -23,12 +26,17 @@ public class Balcony {
     this.floor = floor;
   }
 
-  public String getHandrails() {
+  public Handrails getHandrails() {
     return handrails;
   }
 
-  public void setHandrails(String handrails) {
+  public void setHandrails(Handrails handrails) {
     this.handrails = handrails;
+  }
+
+  @Override
+  public Component build() {
+    return null;
   }
 
   @Override

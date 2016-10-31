@@ -1,5 +1,6 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
@@ -11,33 +12,23 @@ import java.util.List;
  */
 public class DiningRoom extends Room {
 
-  private String basin;
-  private String burner;
+  private String cabinet;
 
-  public DiningRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String basin, String burner) {
+  public DiningRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String cabinet) {
     super(floor, ceiling, walls);
-    this.basin = basin;
-    this.burner = burner;
+    this.cabinet = cabinet;
   }
 
-  public String getBasin() {
-    return basin;
+  public String getCabinet() {
+    return cabinet;
   }
 
-  public void setBasin(String basin) {
-    this.basin = basin;
-  }
-
-  public String getBurner() {
-    return burner;
-  }
-
-  public void setBurner(String burner) {
-    this.burner = burner;
+  public void setCabinet(String cabinet) {
+    this.cabinet = cabinet;
   }
 
   @Override
-  public Room build() {
+  public Component build() {
     return null;
   }
 
