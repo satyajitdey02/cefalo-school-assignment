@@ -9,17 +9,8 @@ import com.cefalo.school.dp.week08.assignment.component.director.HouseBuildingDi
  * Created by satyajit on 10/31/2016.
  */
 public class Customer {
+
   public static void main(String[] args) {
-   /* Waiter waiter = new Waiter();
-    PizzaBuilder hawaiianPizzaBuilder = new HawaiianPizzaBuilder();
-    PizzaBuilder  spicyPizzaBuilder= new SpicyPizzaBuilder();
-
-    waiter.setPizzaBuilder(hawaiianPizzaBuilder);
-    waiter.constructPizza();
-
-    Pizza pizza = waiter.getPizza();
-    System.out.println(pizza.toString());*/
-
     HouseBuildingDirector houseBuildingDirector = new HouseBuildingDirector();
     HouseBuilder houseBuilder = new ConcreteBrickHouseBuilder();
     houseBuildingDirector.setHouseBuilder(houseBuilder);
