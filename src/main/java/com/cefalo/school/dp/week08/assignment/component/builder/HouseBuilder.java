@@ -8,9 +8,14 @@ import com.cefalo.school.dp.week08.assignment.component.complex.House;
 public abstract class HouseBuilder {
 
   protected House house;
+  protected StoreyBuilder storeyBuilder;
 
   public House getHouse() {
     return house;
+  }
+
+  public void setStoreyBuilder(StoreyBuilder storeyBuilder) {
+    this.storeyBuilder = storeyBuilder;
   }
 
   public void startBuildingNewHouse() {

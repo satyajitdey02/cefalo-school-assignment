@@ -2,6 +2,7 @@ package com.cefalo.school.dp.week08.assignment.component.complex;
 
 import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
+import com.cefalo.school.dp.week08.assignment.component.basic.Corridor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Stairs;
 
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ public class Storey implements Buildable{
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();
+
+  /*Optional Fields*/
+  private Corridor corridor;
   private List<Balcony> balconies = new ArrayList<Balcony>();
 
   public Storey() {
@@ -24,10 +28,11 @@ public class Storey implements Buildable{
     this.number = number;
   }
 
-  public Storey(int number, Stairs stairs, List<Room> rooms, List<Balcony> balconies) {
+  public Storey(int number, Stairs stairs, List<Room> rooms, Corridor corridor, List<Balcony> balconies) {
     this.number = number;
     this.stairs = stairs;
     this.rooms = rooms;
+    this.corridor = corridor;
     this.balconies = balconies;
   }
 
@@ -53,6 +58,14 @@ public class Storey implements Buildable{
 
   public void setRooms(List<Room> rooms) {
     this.rooms = rooms;
+  }
+
+  public Corridor getCorridor() {
+    return corridor;
+  }
+
+  public void setCorridor(Corridor corridor) {
+    this.corridor = corridor;
   }
 
   public List<Balcony> getBalconies() {
