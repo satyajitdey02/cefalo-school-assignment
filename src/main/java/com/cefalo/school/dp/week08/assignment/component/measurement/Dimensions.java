@@ -4,37 +4,37 @@ package com.cefalo.school.dp.week08.assignment.component.measurement;
  * Created by satyajit on 10/31/16.
  */
 public class Dimensions {
-  private float length;
-  private float width;
-  private float height;
+  private double length;
+  private double width;
+  private double height;
 
-  public Dimensions(float length, float width, float height) {
+  public Dimensions(double length, double width, double height) {
     this.length = length;
     this.width = width;
     this.height = height;
   }
 
-  public float getLength() {
+  public double getLength() {
     return length;
   }
 
-  public void setLength(float length) {
+  public void setLength(double length) {
     this.length = length;
   }
 
-  public float getWidth() {
+  public double getWidth() {
     return width;
   }
 
-  public void setWidth(float width) {
+  public void setWidth(double width) {
     this.width = width;
   }
 
-  public float getHeight() {
+  public double getHeight() {
     return height;
   }
 
-  public void setHeight(float height) {
+  public void setHeight(double height) {
     this.height = height;
   }
 
