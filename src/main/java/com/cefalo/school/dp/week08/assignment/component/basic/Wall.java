@@ -19,17 +19,12 @@ public class Wall extends Component implements Buildable {
 
   @Override
   public void details() {
-
+    System.out.println(String.format("%s made %s wall. Doors: %s, Window: %s",
+        this.materials, this.type, this.door.toString(), this.window.toString()));
   }
 
   @Override
   public Component build() {
-    return null;
-  }
-
-  @Override
-  public String toString() {
-    return String.format("%s made %s wall. Doors: %s, Window: %s",
-        this.materials, this.type, this.door.toString(), this.window.toString());
+    return this;
   }
 }
