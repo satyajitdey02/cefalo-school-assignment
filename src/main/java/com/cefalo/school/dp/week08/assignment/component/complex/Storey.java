@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Storey implements Buildable{
+public class Storey implements Buildable {
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();

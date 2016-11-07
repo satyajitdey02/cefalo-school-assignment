@@ -1,5 +1,6 @@
 package com.cefalo.school.dp.week08.assignment.component.builder;
 
+import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 import com.cefalo.school.dp.week08.assignment.component.complex.Room;
 
 /**
@@ -8,14 +9,14 @@ import com.cefalo.school.dp.week08.assignment.component.complex.Room;
 public abstract class RoomBuilder {
 
   protected Room room;
+  protected WallBuilder wallBuilder;
 
   public Room getRoom() {
     return this.room;
   }
 
-  /*For the dynamic binding of the room-Living room, Dining room etc.*/
-  public void setRoom(Room room) {
-    this.room = room;
+  public void setWallBuilder(WallBuilder wallBuilder) {
+    this.wallBuilder = wallBuilder;
   }
 
   public abstract void buildFloor();
@@ -25,4 +26,8 @@ public abstract class RoomBuilder {
   public abstract void buildWalls();
 
   public abstract void buildCeiling();
+
+  public void buildRoomSpecificSetup() {
+    System.out.println("Typical Room.");
+  }
 }

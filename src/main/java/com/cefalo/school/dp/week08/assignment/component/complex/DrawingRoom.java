@@ -14,6 +14,10 @@ public class DrawingRoom extends Room {
 
   private String firePlace;
 
+  public DrawingRoom() {
+
+  }
+
   public DrawingRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String firePlace) {
     super(floor, ceiling, walls);
     this.firePlace = firePlace;

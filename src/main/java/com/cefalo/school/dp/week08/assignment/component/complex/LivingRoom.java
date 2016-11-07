@@ -12,11 +12,12 @@ import java.util.List;
  */
 public class LivingRoom extends Room {
 
-  private String firePlace;
+  public LivingRoom() {
+
+  }
 
   public LivingRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String firePlace) {
     super(floor, ceiling, walls);
-    this.firePlace = firePlace;
   }
 
   @Override

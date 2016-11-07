@@ -19,6 +19,9 @@ public abstract class Room implements Buildable {
   private List<Column> columns = new ArrayList<Column>();
   private List<Wall> walls = new ArrayList<Wall>();
 
+  public Room() {
+  }
+
   public Room(Floor floor, Ceiling ceiling, List<Wall> walls) {
     this.floor = floor;
     this.ceiling = ceiling;

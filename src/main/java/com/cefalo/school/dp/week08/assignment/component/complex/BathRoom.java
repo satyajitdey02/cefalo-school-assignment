@@ -15,6 +15,10 @@ public class BathRoom extends Room {
   private String shower;
   private String bathtub;
 
+  public BathRoom() {
+
+  }
+
   public BathRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String shower, String bathtub) {
     super(floor, ceiling, walls);
     this.shower = shower;

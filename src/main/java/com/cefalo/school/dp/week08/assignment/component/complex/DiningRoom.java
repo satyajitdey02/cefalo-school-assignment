@@ -14,6 +14,10 @@ public class DiningRoom extends Room {
 
   private String cabinet;
 
+  public DiningRoom() {
+
+  }
+
   public DiningRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String cabinet) {
     super(floor, ceiling, walls);
     this.cabinet = cabinet;

@@ -10,6 +10,9 @@ public abstract class Component {
   protected Dimensions dimensions;
   protected String materials;
 
+  public Component() {
+  }
+
   public Component(String type, Dimensions dimensions, String materials) {
     this.type = type;
     this.dimensions = dimensions;
