@@ -1,6 +1,5 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
@@ -29,11 +28,6 @@ public class DiningRoom extends Room {
 
   public void setCabinet(String cabinet) {
     this.cabinet = cabinet;
-  }
-
-  @Override
-  public Component build() {
-    return null;
   }
 
   @Override

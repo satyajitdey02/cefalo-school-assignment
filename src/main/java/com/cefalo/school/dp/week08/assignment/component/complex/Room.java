@@ -1,7 +1,5 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Buildable;
-import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Column;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
@@ -13,7 +11,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public abstract class Room implements Buildable {
+public abstract class Room  {
   private Floor floor;
   private Ceiling ceiling;
   private List<Column> columns = new ArrayList<Column>();

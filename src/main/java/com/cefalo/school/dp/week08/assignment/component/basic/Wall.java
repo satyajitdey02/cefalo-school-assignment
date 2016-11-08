@@ -1,6 +1,5 @@
 package com.cefalo.school.dp.week08.assignment.component.basic;
 
-import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 
@@ -10,7 +9,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class Wall extends Component implements Buildable {
+public class Wall extends Component {
 
   /*Optional Fields*/
   private List<Window> windows = new ArrayList<Window>();
@@ -44,10 +43,5 @@ public class Wall extends Component implements Buildable {
   public void details() {
    /* System.out.println(String.format("%s made %s wall. Doors: %s, Window: %s",
         this.materials, this.type, this.door.toString(), this.window.toString()));*/
-  }
-
-  @Override
-  public Component build() {
-    return this;
   }
 }

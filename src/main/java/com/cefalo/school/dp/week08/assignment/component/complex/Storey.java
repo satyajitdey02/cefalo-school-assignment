@@ -1,7 +1,5 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Buildable;
-import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Corridor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Stairs;
 
@@ -11,7 +9,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Storey implements Buildable {
+public class Storey  {
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();
@@ -74,11 +72,6 @@ public class Storey implements Buildable {
 
   public void setBalconies(List<Balcony> balconies) {
     this.balconies = balconies;
-  }
-
-  @Override
-  public Component build() {
-    return null;
   }
 
   @Override

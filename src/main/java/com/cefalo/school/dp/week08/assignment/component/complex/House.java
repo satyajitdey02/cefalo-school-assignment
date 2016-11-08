@@ -1,11 +1,8 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.Buildable;
-import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
-import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +10,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class House implements Buildable {
+public class House  {
 
   private Foundation foundation;
   private List<Storey> storeys = new ArrayList<Storey>();
@@ -98,10 +95,5 @@ public class House implements Buildable {
 
   public void setFences(List<Fence> fences) {
     this.fences = fences;
-  }
-
-  @Override
-  public Component build() {
-    return null;
   }
 }
