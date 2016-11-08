@@ -8,12 +8,54 @@ import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
  */
 public class Stairs extends Component {
 
-  /*Optional Fields*/
   private boolean external = true;
   private Handrails handrails;
 
-  public Stairs(String type, Dimensions dimensions, String materials) {
-    super(type, dimensions, materials);
+  public static class Builder {
+    /*Mandatory Fields*/
+    private String bType;
+    private Dimensions bDimensions;
+    private String bMaterials;
+
+    /*Optional Fields*/
+    private boolean bExternal;
+    private Handrails bHandrails;
+
+    public Builder(String type, Dimensions dimensions, String materials) {
+      this.bType = type;
+      this.bDimensions = dimensions;
+      this.bMaterials = materials;
+    }
+
+    public Builder external(boolean external) {
+      this.bExternal = external;
+      return this;
+    }
+
+    public Builder handrails(Handrails handrails) {
+      this.bHandrails = handrails;
+      return this;
+    }
+
+    public Stairs build() {
+      return new Stairs(this);
+    }
+  }
+
+  private Stairs(Builder builder) {
+    this.type = builder.bType;
+    this.dimensions = builder.bDimensions;
+    this.materials = builder.bMaterials;
+    this.external = builder.bExternal;
+    this.handrails = builder.bHandrails;
+  }
+
+  public boolean isExternal() {
+    return external;
+  }
+
+  public Handrails getHandrails() {
+    return handrails;
   }
 
   @Override

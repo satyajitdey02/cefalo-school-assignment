@@ -12,7 +12,7 @@ public class ConcreteBrickWallWithDoorBuilder extends WallBuilder {
 
   @Override
   public void buildNewWall() {
-    wall = new Wall("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick");
+    wall = new Wall.Builder("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick").build();
   }
 
   @Override
@@ -22,7 +22,9 @@ public class ConcreteBrickWallWithDoorBuilder extends WallBuilder {
 
   @Override
   public void buildDoor() {
-    this.wall.getDoors().add(new Door("Wood",
-        new Dimensions(0.0,4.0, 8.0), "Wood"));
+    /*this.wall.getDoors().add(new Door("Wood",
+        new Dimensions(0.0,4.0, 8.0), "Wood"));*/
+    wall.getBuilder(wall).door(new Door("Wood",
+        new Dimensions(0.0,4.0, 8.0), "Wood")).build();
   }
 }

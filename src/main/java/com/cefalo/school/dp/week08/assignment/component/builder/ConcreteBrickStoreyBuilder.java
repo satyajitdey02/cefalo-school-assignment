@@ -14,7 +14,8 @@ import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 public class ConcreteBrickStoreyBuilder extends StoreyBuilder {
   @Override
   public void buildStairs() {
-    storey.setStairs(new Stairs("Quarter Shaped", new Dimensions(50.0, 20.0, 1.5), "Wooden"));
+    storey.setStairs(new Stairs.Builder("Quarter Shaped", new Dimensions(50.0, 20.0, 1.5), "Concrete+Brick")
+        .external(true).handrails(new Handrails("Wooden", new Dimensions(100.0, 0.0, 4.0), "Wood")).build());
   }
 
   @Override

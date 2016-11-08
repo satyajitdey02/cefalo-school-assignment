@@ -13,9 +13,7 @@ public abstract class WallBuilder {
     return wall;
   }
 
-  public void buildNewWall() {
-    this.wall = new Wall();
-  }
+  public abstract void buildNewWall();
 
   public abstract void buildWindow();
 

@@ -11,32 +11,72 @@ import java.util.List;
  */
 public class Wall extends Component {
 
-  /*Optional Fields*/
   private List<Window> windows = new ArrayList<Window>();
   private List<Door> doors = new ArrayList<Door>();
 
-  public Wall() {
+  public static class Builder {
+    /*Mandatory Fields*/
+    private String bType;
+    private Dimensions bDimensions;
+    private String bMaterials;
 
+    /*Optional Fields*/
+    private List<Window> bWindows = new ArrayList<Window>();
+    private List<Door> bDoors = new ArrayList<Door>();
+
+    public Builder(Wall wall) {
+
+    }
+
+    public Builder(String type, Dimensions dimensions, String materials) {
+      this.bType = type;
+      this.bDimensions = dimensions;
+      this.bMaterials = materials;
+    }
+
+    public Builder window(Window window) {
+      this.bWindows.add(window);
+      return this;
+    }
+
+    public Builder windows(List<Window> windows) {
+      this.bWindows.addAll(windows);
+      return this;
+    }
+
+    public Builder door(Door door) {
+      this.bDoors.add(door);
+      return this;
+    }
+
+    public Builder doors(List<Door> doors) {
+      this.bDoors.addAll(doors);
+      return this;
+    }
+
+    public Wall build() {
+      return new Wall(this);
+    }
   }
 
-  public Wall(String type, Dimensions dimensions, String materials) {
-    super(type, dimensions, materials);
+  private Wall(Builder builder) {
+    this.type = builder.bType;
+    this.dimensions = builder.bDimensions;
+    this.materials = builder.bMaterials;
+    this.windows = builder.bWindows;
+    this.doors = builder.bDoors;
   }
 
   public List<Window> getWindows() {
     return windows;
   }
 
-  public void setWindows(List<Window> windows) {
-    this.windows = windows;
-  }
-
   public List<Door> getDoors() {
     return doors;
   }
 
-  public void setDoors(List<Door> doors) {
-    this.doors = doors;
+  public Builder getBuilder(Wall wall) {
+    return new Builder(this);
   }
 
   @Override
