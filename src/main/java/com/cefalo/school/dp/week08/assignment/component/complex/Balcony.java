@@ -1,12 +1,13 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Handrails;
 
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Balcony {
+public class Balcony extends Component {
 
   private Floor floor;
   private Handrails handrails;
@@ -33,7 +34,9 @@ public class Balcony {
   }
 
   @Override
-  public String toString() {
-    return super.toString();
+  public void details() {
+    System.out.println("Balcony built.");
+    floor.details();
+    handrails.details();
   }
 }

@@ -41,7 +41,17 @@ public class Wall extends Component {
 
   @Override
   public void details() {
-   /* System.out.println(String.format("%s made %s wall. Doors: %s, Window: %s",
-        this.materials, this.type, this.door.toString(), this.window.toString()));*/
+    System.out.println("Wall built.");
+    System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
+        this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
+        this.dimensions.getHeight(), this.materials));
+
+    for(Window window : this.windows) {
+      window.details();
+    }
+
+    for(Door door : this.doors) {
+      door.details();
+    }
   }
 }

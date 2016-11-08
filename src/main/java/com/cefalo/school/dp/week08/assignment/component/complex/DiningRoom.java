@@ -34,4 +34,16 @@ public class DiningRoom extends Room {
   public String toString() {
     return super.toString();
   }
+
+  @Override
+  public void details() {
+    getFloor().details();
+    getCeiling().details();
+
+    for(Wall wall : getWalls()) {
+      wall.details();
+    }
+
+    System.out.println(String.format("Cabinet: %s.", cabinet));
+  }
 }

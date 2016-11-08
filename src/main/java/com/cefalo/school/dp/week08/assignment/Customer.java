@@ -17,6 +17,6 @@ public class Customer {
     houseBuildingDirector.constructHouse();
 
     House house = houseBuilder.getHouse();
-    System.out.println("My House: " + house.toString());
+    house.details();
   }
 }

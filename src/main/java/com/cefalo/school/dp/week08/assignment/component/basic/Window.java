@@ -14,11 +14,9 @@ public class Window extends Component {
 
   @Override
   public void details() {
-
-  }
-
-  @Override
-  public String toString() {
-    return String.format("%s made %s window.");
+    System.out.println("Window built.");
+    System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
+        this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
+        this.dimensions.getHeight(), this.materials));
   }
 }

@@ -6,6 +6,7 @@ import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
  * Created by satyajit on 10/31/16.
  */
 public abstract class Component {
+
   protected String type;
   protected Dimensions dimensions;
   protected String materials;

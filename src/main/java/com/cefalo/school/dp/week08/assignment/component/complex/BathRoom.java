@@ -41,7 +41,14 @@ public class BathRoom extends Room {
   }
 
   @Override
-  public String toString() {
-    return super.toString();
+  public void details() {
+    getFloor().details();
+    getCeiling().details();
+
+    for(Wall wall : getWalls()) {
+      wall.details();
+    }
+
+    System.out.println(String.format("Shower: %s. Bathtub: %s.", shower, bathtub));
   }
 }

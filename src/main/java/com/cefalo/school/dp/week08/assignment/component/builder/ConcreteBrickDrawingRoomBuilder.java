@@ -67,7 +67,5 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
   @Override
   public void buildRoomSpecificSetup() {
     ((DrawingRoom)this.room).setFirePlace("Fireplace");
-
-    System.out.println("CB Drawing Room");
   }
 }

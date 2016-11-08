@@ -1,5 +1,6 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Corridor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Stairs;
 
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Storey  {
+public class Storey  extends Component{
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();
@@ -75,7 +76,19 @@ public class Storey  {
   }
 
   @Override
-  public String toString() {
-    return super.toString();
+  public void details() {
+    System.out.println("Storey built.");
+    stairs.details();
+    for(Room room : this.rooms) {
+      room.details();
+    }
+
+    if(this.corridor != null) {
+      corridor.details();
+    }
+
+    for(Balcony balcony : this.balconies) {
+      balcony.details();
+    }
   }
 }

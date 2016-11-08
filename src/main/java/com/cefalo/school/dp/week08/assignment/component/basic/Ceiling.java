@@ -14,11 +14,9 @@ public class Ceiling extends Component  {
 
   @Override
   public void details() {
-
-  }
-
-  @Override
-  public String toString() {
-    return super.toString();
+    System.out.println("Ceiling built.");
+    System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
+        this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
+        this.dimensions.getHeight(), this.materials));
   }
 }

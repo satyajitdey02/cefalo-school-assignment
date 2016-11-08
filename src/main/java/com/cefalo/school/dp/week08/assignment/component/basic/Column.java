@@ -14,6 +14,9 @@ public class Column extends Component  {
 
   @Override
   public void details() {
-    System.out.println(String.format("%s made %s column.", this.materials, this.type));
+    System.out.println("Column built.");
+    System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
+        this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
+        this.dimensions.getHeight(), this.materials));
   }
 }

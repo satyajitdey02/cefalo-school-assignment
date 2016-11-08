@@ -68,7 +68,5 @@ public class ConcreteBrickBathRoomBuilder extends RoomBuilder {
   public void buildRoomSpecificSetup() {
     ((BathRoom)this.room).setShower("Shower");
     ((BathRoom)this.room).setBathtub("Bathtub");
-
-    System.out.println("CB Bathroom");
   }
 }

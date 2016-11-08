@@ -1,5 +1,6 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class House  {
+public class House extends Component {
 
   private Foundation foundation;
   private List<Storey> storeys = new ArrayList<Storey>();
@@ -24,7 +25,6 @@ public class House  {
   private List<Fence> fences;
 
   public House() {
-
   }
 
   public House(Foundation foundation, List<Storey> storeys, Roof roof) {
@@ -95,5 +95,17 @@ public class House  {
 
   public void setFences(List<Fence> fences) {
     this.fences = fences;
+  }
+
+  @Override
+  public void details() {
+    foundation.details();
+
+    for(Storey storey : this.storeys) {
+      storey.details();
+    }
+
+    roof.details();
+    System.out.println("House built.");
   }
 }

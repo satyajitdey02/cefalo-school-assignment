@@ -67,7 +67,5 @@ public class ConcreteBrickDiningRoomBuilder extends RoomBuilder {
   @Override
   public void buildRoomSpecificSetup() {
     ((DiningRoom)this.room).setCabinet("Cabinet");
-
-    System.out.println("CB Dining Room");
   }
 }

@@ -62,7 +62,5 @@ public class ConcreteBrickLivingRoomBuilder extends RoomBuilder {
   public void buildCeiling() {
     this.room.setCeiling(new Ceiling("Concrete+Brick",
         new Dimensions(10.0, 10.0, 0.0), "Concrete+Brick"));
-
-    System.out.println("CB Living Room");
   }
 }

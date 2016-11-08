@@ -19,7 +19,12 @@ public class LivingRoom extends Room {
   }
 
   @Override
-  public String toString() {
-    return super.toString();
+  public void details() {
+    getFloor().details();
+    getCeiling().details();
+
+    for(Wall wall : getWalls()) {
+      wall.details();
+    }
   }
 }
