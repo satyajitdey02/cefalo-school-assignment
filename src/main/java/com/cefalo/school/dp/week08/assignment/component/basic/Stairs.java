@@ -1,12 +1,16 @@
 package com.cefalo.school.dp.week08.assignment.component.basic;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
+import com.cefalo.school.dp.week08.assignment.component.measurement.MeasurementValidator;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Stairs extends Component {
+public class Stairs extends Component implements Buildable {
 
   private boolean external = true;
   private Handrails handrails;
@@ -67,6 +71,22 @@ public class Stairs extends Component {
     if (handrails != null) {
       handrails.details();
     }
+  }
 
+  @Override
+  public void validate() throws WrongArchitectureException {
+    if(StringUtils.isBlank(type)) {
+      throw new WrongArchitectureException("The Stairs type must be defined.");
+    }
+
+    if(!MeasurementValidator.validateDimensions(dimensions)) {
+      throw new WrongArchitectureException("The Stairs dimension is invalid.");
+    }
+
+    if(StringUtils.isBlank(materials)) {
+      throw new WrongArchitectureException("The Stairs materials must be defined.");
+    }
+
+    handrails.validate();
   }
 }

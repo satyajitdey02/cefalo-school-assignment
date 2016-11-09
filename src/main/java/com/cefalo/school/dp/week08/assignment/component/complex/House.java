@@ -1,9 +1,12 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class House extends Component {
+public class House extends Component implements Buildable {
 
   private Foundation foundation;
   private List<Storey> storeys = new ArrayList<Storey>();
@@ -100,12 +103,36 @@ public class House extends Component {
   @Override
   public void details() {
     foundation.details();
-
-    for(Storey storey : this.storeys) {
+    for (Storey storey : this.storeys) {
       storey.details();
     }
 
     roof.details();
+    if (StringUtils.isNoneBlank(lawn)) {
+      System.out.println(String.format("Lawn: %s", lawn));
+    }
+
+    if (StringUtils.isNoneBlank(walkWays)) {
+      System.out.println(String.format("WalkWays: %s", walkWays));
+    }
+
+    if (StringUtils.isNoneBlank(outdoorLighting)) {
+      System.out.println(String.format("Outdoor Lighting: %s", outdoorLighting));
+    }
+
     System.out.println("\nHouse built.");
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    foundation.validate();
+    if (this.storeys.isEmpty()) {
+      throw new WrongArchitectureException("Storeys need to be defined to design a House.");
+    }
+
+    for (Storey storey : storeys) {
+      storey.validate();
+    }
+    roof.validate();
   }
 }

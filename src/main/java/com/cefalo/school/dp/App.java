@@ -8,7 +8,7 @@ import com.cefalo.school.dp.week01.assignment.io.QuickSortIO;
 import com.cefalo.school.dp.week01.assignment.sort.DQAlgorithm;
 import com.cefalo.school.dp.week01.assignment.sort.MergeSort;
 import com.cefalo.school.dp.week01.assignment.sort.QuickSort;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Scanner;

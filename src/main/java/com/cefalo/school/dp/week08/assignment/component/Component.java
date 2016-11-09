@@ -44,5 +44,5 @@ public abstract class Component {
     this.materials = materials;
   }
 
-  public abstract void details();
+  //public abstract void details();
 }

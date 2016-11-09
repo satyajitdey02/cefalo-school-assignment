@@ -1,13 +1,15 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Handrails;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Balcony extends Component {
+public class Balcony extends Component implements Buildable {
 
   private Floor floor;
   private Handrails handrails;
@@ -38,5 +40,11 @@ public class Balcony extends Component {
     System.out.println("\nBalcony built.");
     floor.details();
     handrails.details();
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    floor.validate();
+    handrails.validate();
   }
 }

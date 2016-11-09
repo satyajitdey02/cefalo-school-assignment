@@ -1,10 +1,12 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Column;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class Room extends Component {
+public class Room extends Component implements Buildable {
 
   protected Floor floor;
   protected Ceiling ceiling;
@@ -92,6 +94,38 @@ public class Room extends Component {
 
   @Override
   public void details() {
+    this.floor.details();
 
+    for(Column column : columns) {
+      column.details();
+    }
+
+    for (Wall wall : getWalls()) {
+      wall.details();
+    }
+
+    this.ceiling.details();
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    floor.validate();
+    if(columns.isEmpty()) {
+      throw new WrongArchitectureException("Room columns are not defined.");
+    }
+
+    for(Column column : columns) {
+      column.validate();
+    }
+
+    if(walls.isEmpty()) {
+      throw new WrongArchitectureException("Room walls are not defined.");
+    }
+
+    for(Wall wall: walls) {
+      wall.validate();
+    }
+
+    ceiling.validate();
   }
 }

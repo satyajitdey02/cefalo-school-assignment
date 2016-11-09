@@ -1,8 +1,10 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Corridor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Stairs;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Storey extends Component {
+public class Storey extends Component implements Buildable {
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();
@@ -112,5 +114,16 @@ public class Storey extends Component {
 
     stairs.details();
     System.out.println("\nStorey built.");
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    if(rooms.isEmpty()) {
+      throw new WrongArchitectureException(String.format("No room designed in Storey-%s.", number));
+    }
+
+    for(Room room : rooms) {
+      room.validate();
+    }
   }
 }

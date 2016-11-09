@@ -1,7 +1,7 @@
 package com.cefalo.school.dp.week01.assignment.cli;
 
 import com.cefalo.school.dp.week01.assignment.exception.CliException;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by satyajit on 9/22/2016.

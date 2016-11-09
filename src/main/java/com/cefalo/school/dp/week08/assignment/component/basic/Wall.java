@@ -1,7 +1,11 @@
 package com.cefalo.school.dp.week08.assignment.component.basic;
 
+import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
+import com.cefalo.school.dp.week08.assignment.component.measurement.MeasurementValidator;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +13,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/30/16.
  */
-public class Wall extends Component {
+public class Wall extends Component implements Buildable {
 
   private List<Window> windows = new ArrayList<Window>();
   private List<Door> doors = new ArrayList<Door>();
@@ -77,17 +81,45 @@ public class Wall extends Component {
 
   @Override
   public void details() {
-    System.out.println("\nWall built.");
     System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
         this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
         this.dimensions.getHeight(), this.materials));
 
-    for(Window window : this.windows) {
+    for (Window window : this.windows) {
       window.details();
     }
 
-    for(Door door : this.doors) {
+    for (Door door : this.doors) {
       door.details();
+    }
+
+    System.out.println("\nWall built.");
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    if (StringUtils.isBlank(type)) {
+      throw new WrongArchitectureException("The Walls type must be defined.");
+    }
+
+    if (!MeasurementValidator.validateDimensions(dimensions)) {
+      throw new WrongArchitectureException("The Walls dimension is invalid.");
+    }
+
+    if (StringUtils.isBlank(materials)) {
+      throw new WrongArchitectureException("The Walls materials must be defined.");
+    }
+
+    if (!windows.isEmpty()) {
+      for (Window window : windows) {
+        window.validate();
+      }
+    }
+
+    if (!doors.isEmpty()) {
+      for (Door door : doors) {
+        door.validate();
+      }
     }
   }
 }

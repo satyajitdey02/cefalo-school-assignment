@@ -1,6 +1,8 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
+import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by satyajit on 10/31/16.
@@ -49,13 +51,15 @@ public class BathRoom extends Room {
 
   @Override
   public void details() {
-    this.floor.details();
-    this.ceiling.details();
-
-    for (Wall wall : getWalls()) {
-      wall.details();
-    }
-
+    super.details();
     System.out.println(String.format("Shower: %s. Bathtub: %s.", shower, bathtub));
+  }
+
+  @Override
+  public void validate() throws WrongArchitectureException {
+    super.validate();
+    if(StringUtils.isBlank(shower) && StringUtils.isBlank(bathtub)) {
+      throw new WrongArchitectureException("At least one shower or bathtub need to be placed in a bathroom");
+    }
   }
 }
