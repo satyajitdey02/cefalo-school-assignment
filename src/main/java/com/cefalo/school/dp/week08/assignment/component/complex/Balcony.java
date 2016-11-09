@@ -37,9 +37,9 @@ public class Balcony extends Component implements Buildable {
 
   @Override
   public void details() {
-    System.out.println("\nBalcony built.");
     floor.details();
     handrails.details();
+    System.out.println("\nBalcony built.");
   }
 
   @Override

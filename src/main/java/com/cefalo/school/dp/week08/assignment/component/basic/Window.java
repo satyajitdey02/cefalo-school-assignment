@@ -18,10 +18,10 @@ public class Window extends Component implements Buildable{
 
   @Override
   public void details() {
-    System.out.println("\nWindow built.");
     System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
         this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
         this.dimensions.getHeight(), this.materials));
+    System.out.println("\nWindow built.");
   }
 
   @Override
