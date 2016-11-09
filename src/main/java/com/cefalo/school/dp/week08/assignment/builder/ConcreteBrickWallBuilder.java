@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week08.assignment.component.builder;
+package com.cefalo.school.dp.week08.assignment.builder;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;

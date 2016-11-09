@@ -1,13 +1,8 @@
-package com.cefalo.school.dp.week08.assignment.component.builder;
+package com.cefalo.school.dp.week08.assignment.builder;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.*;
-import com.cefalo.school.dp.week08.assignment.component.complex.*;
-import com.cefalo.school.dp.week08.assignment.component.director.HouseBuildingDirector;
-import com.cefalo.school.dp.week08.assignment.component.director.StoreyBuilderDirector;
+import com.cefalo.school.dp.week08.assignment.director.StoreyBuilderDirector;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by satyajit on 10/31/2016.

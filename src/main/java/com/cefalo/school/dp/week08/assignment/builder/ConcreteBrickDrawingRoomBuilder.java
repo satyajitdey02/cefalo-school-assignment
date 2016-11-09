@@ -1,26 +1,25 @@
-package com.cefalo.school.dp.week08.assignment.component.builder;
+package com.cefalo.school.dp.week08.assignment.builder;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Column;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
-import com.cefalo.school.dp.week08.assignment.component.complex.BathRoom;
-import com.cefalo.school.dp.week08.assignment.component.complex.DiningRoom;
-import com.cefalo.school.dp.week08.assignment.component.director.WallBuilderDirector;
+import com.cefalo.school.dp.week08.assignment.component.complex.DrawingRoom;
+import com.cefalo.school.dp.week08.assignment.director.WallBuilderDirector;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 
 /**
  * Created by satyajit on 11/8/16.
  */
-public class ConcreteBrickDiningRoomBuilder extends RoomBuilder {
+public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
 
-  public ConcreteBrickDiningRoomBuilder() {
-    builder = new DiningRoom.Builder();
+  public ConcreteBrickDrawingRoomBuilder() {
+    builder = new DrawingRoom.Builder();
   }
 
   @Override
   public void buildFloor() {
     builder.floor(new Floor("Concrete+Brick",
-        new Dimensions(15.0, 12.0, 0.0), "Concrete+Brick"));
+        new Dimensions(8.0, 8.0, 0.0), "Concrete+Brick"));
   }
 
   @Override
@@ -63,6 +62,6 @@ public class ConcreteBrickDiningRoomBuilder extends RoomBuilder {
 
   @Override
   public void buildRoomSpecificSetup() {
-    ((DiningRoom.Builder) builder).cabinet("Cabinet");
+    ((DrawingRoom.Builder) builder).fireplace("Fireplace");
   }
 }

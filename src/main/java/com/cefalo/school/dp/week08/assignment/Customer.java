@@ -1,9 +1,9 @@
 package com.cefalo.school.dp.week08.assignment;
 
-import com.cefalo.school.dp.week08.assignment.component.builder.ConcreteBrickHouseBuilder;
-import com.cefalo.school.dp.week08.assignment.component.builder.HouseBuilder;
+import com.cefalo.school.dp.week08.assignment.builder.ConcreteBrickHouseBuilder;
+import com.cefalo.school.dp.week08.assignment.builder.HouseBuilder;
 import com.cefalo.school.dp.week08.assignment.component.complex.House;
-import com.cefalo.school.dp.week08.assignment.component.director.HouseBuildingDirector;
+import com.cefalo.school.dp.week08.assignment.director.HouseBuildingDirector;
 
 /**
  * Created by satyajit on 10/31/2016.

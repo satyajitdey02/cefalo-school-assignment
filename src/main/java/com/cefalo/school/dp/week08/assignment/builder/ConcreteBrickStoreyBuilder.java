@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week08.assignment.component.builder;
+package com.cefalo.school.dp.week08.assignment.builder;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Corridor;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
@@ -6,7 +6,7 @@ import com.cefalo.school.dp.week08.assignment.component.basic.Handrails;
 import com.cefalo.school.dp.week08.assignment.component.basic.Stairs;
 import com.cefalo.school.dp.week08.assignment.component.complex.Balcony;
 import com.cefalo.school.dp.week08.assignment.component.complex.Storey;
-import com.cefalo.school.dp.week08.assignment.component.director.RoomBuilderDirector;
+import com.cefalo.school.dp.week08.assignment.director.RoomBuilderDirector;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 
 /**

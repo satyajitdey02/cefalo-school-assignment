@@ -1,19 +1,19 @@
-package com.cefalo.school.dp.week08.assignment.component.builder;
+package com.cefalo.school.dp.week08.assignment.builder;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Column;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
-import com.cefalo.school.dp.week08.assignment.component.complex.DrawingRoom;
-import com.cefalo.school.dp.week08.assignment.component.director.WallBuilderDirector;
+import com.cefalo.school.dp.week08.assignment.component.complex.BathRoom;
+import com.cefalo.school.dp.week08.assignment.director.WallBuilderDirector;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 
 /**
  * Created by satyajit on 11/8/16.
  */
-public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
+public class ConcreteBrickBathRoomBuilder extends RoomBuilder {
 
-  public ConcreteBrickDrawingRoomBuilder() {
-    builder = new DrawingRoom.Builder();
+  public ConcreteBrickBathRoomBuilder() {
+    builder = new BathRoom.Builder();
   }
 
   @Override
@@ -62,6 +62,7 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
 
   @Override
   public void buildRoomSpecificSetup() {
-    ((DrawingRoom.Builder) builder).fireplace("Fireplace");
+    ((BathRoom.Builder) builder).shower("Shower");
+    ((BathRoom.Builder) builder).bathtub("Bathtub");
   }
 }

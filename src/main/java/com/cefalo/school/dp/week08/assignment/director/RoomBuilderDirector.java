@@ -1,6 +1,6 @@
-package com.cefalo.school.dp.week08.assignment.component.director;
+package com.cefalo.school.dp.week08.assignment.director;
 
-import com.cefalo.school.dp.week08.assignment.component.builder.RoomBuilder;
+import com.cefalo.school.dp.week08.assignment.builder.RoomBuilder;
 import com.cefalo.school.dp.week08.assignment.component.complex.Room;
 
 /**

@@ -1,7 +1,7 @@
-package com.cefalo.school.dp.week08.assignment.component.director;
+package com.cefalo.school.dp.week08.assignment.director;
 
 import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
-import com.cefalo.school.dp.week08.assignment.component.builder.WallBuilder;
+import com.cefalo.school.dp.week08.assignment.builder.WallBuilder;
 
 /**
  * Created by satyajit on 11/8/16.
