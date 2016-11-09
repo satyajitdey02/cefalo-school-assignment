@@ -2,14 +2,12 @@ package com.cefalo.school.dp.week08.assignment.component.complex;
 
 import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
-import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
 import com.cefalo.school.dp.week08.assignment.component.decoration.GardenLandscape;
 import com.cefalo.school.dp.week08.assignment.component.decoration.HouseUtilities;
 import com.cefalo.school.dp.week08.assignment.component.decoration.Interior;
 import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
