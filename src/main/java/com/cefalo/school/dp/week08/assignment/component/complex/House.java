@@ -5,6 +5,9 @@ import com.cefalo.school.dp.week08.assignment.component.Component;
 import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
+import com.cefalo.school.dp.week08.assignment.component.decoration.GardenLandscape;
+import com.cefalo.school.dp.week08.assignment.component.decoration.HouseUtilities;
+import com.cefalo.school.dp.week08.assignment.component.decoration.Interior;
 import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -20,11 +23,10 @@ public class House extends Component implements Buildable {
   private List<Storey> storeys = new ArrayList<Storey>();
   private Roof roof;
 
-  private String lawn;
-  private String walkWays;
-  private String outdoorLighting;
-  private String mailBox;
-  private List<Fence> fences = new ArrayList<Fence>();
+  private HouseUtilities houseUtilities;
+  private Interior interior;
+  private GardenLandscape gardenLandscape;
+
 
   public static class Builder {
 
@@ -32,11 +34,9 @@ public class House extends Component implements Buildable {
     private List<Storey> bStoreys = new ArrayList<Storey>();
     private Roof bRoof;
 
-    private String bLawn;
-    private String bWalkWays;
-    private String bOutdoorLighting;
-    private String bMailBox;
-    private List<Fence> bFences = new ArrayList<Fence>();
+    private HouseUtilities bHouseUtilities;
+    private Interior bInterior;
+    private GardenLandscape bGardenLandscape;
 
     public Builder() {
 
@@ -62,33 +62,18 @@ public class House extends Component implements Buildable {
       return this;
     }
 
-    public Builder lawn(String lawn) {
-      this.bLawn = lawn;
+    public Builder houseUtilities(HouseUtilities houseUtilities) {
+      this.bHouseUtilities = houseUtilities;
       return this;
     }
 
-    public Builder walkWays(String walkWays) {
-      this.bWalkWays = walkWays;
+    public Builder interior(Interior interior) {
+      this.bInterior = interior;
       return this;
     }
 
-    public Builder outdoorLighting(String outdoorLighting) {
-      this.bOutdoorLighting = outdoorLighting;
-      return this;
-    }
-
-    public Builder mailBox(String mailBox) {
-      this.bMailBox = mailBox;
-      return this;
-    }
-
-    public Builder fence(Fence fence) {
-      this.bFences.add(fence);
-      return this;
-    }
-
-    public Builder fences(List<Fence> fences) {
-      this.bFences.addAll(fences);
+    public Builder gardenLandscape(GardenLandscape gardenLandscape) {
+      this.bGardenLandscape = gardenLandscape;
       return this;
     }
 
@@ -101,11 +86,9 @@ public class House extends Component implements Buildable {
     this.foundation = builder.bFoundation;
     this.storeys = builder.bStoreys;
     this.roof = builder.bRoof;
-    this.lawn = builder.bLawn;
-    this.walkWays = builder.bWalkWays;
-    this.outdoorLighting = builder.bOutdoorLighting;
-    this.mailBox = builder.bMailBox;
-    this.fences = builder.bFences;
+    this.houseUtilities = builder.bHouseUtilities;
+    this.interior = builder.bInterior;
+    this.gardenLandscape = builder.bGardenLandscape;
   }
 
   public Foundation getFoundation() {
@@ -120,24 +103,16 @@ public class House extends Component implements Buildable {
     return roof;
   }
 
-  public String getLawn() {
-    return lawn;
+  public HouseUtilities getHouseUtilities() {
+    return houseUtilities;
   }
 
-  public String getWalkWays() {
-    return walkWays;
+  public Interior getInterior() {
+    return interior;
   }
 
-  public String getOutdoorLighting() {
-    return outdoorLighting;
-  }
-
-  public String getMailBox() {
-    return mailBox;
-  }
-
-  public List<Fence> getFences() {
-    return fences;
+  public GardenLandscape getGardenLandscape() {
+    return gardenLandscape;
   }
 
   @Override
@@ -148,17 +123,9 @@ public class House extends Component implements Buildable {
     }
 
     roof.details();
-    if (StringUtils.isNoneBlank(lawn)) {
-      System.out.println(String.format("Lawn: %s", lawn));
-    }
-
-    if (StringUtils.isNoneBlank(walkWays)) {
-      System.out.println(String.format("WalkWays: %s", walkWays));
-    }
-
-    if (StringUtils.isNoneBlank(outdoorLighting)) {
-      System.out.println(String.format("Outdoor Lighting: %s", outdoorLighting));
-    }
+    houseUtilities.details();
+    gardenLandscape.details();
+    interior.details();
 
     System.out.println("\nHouse built.");
   }

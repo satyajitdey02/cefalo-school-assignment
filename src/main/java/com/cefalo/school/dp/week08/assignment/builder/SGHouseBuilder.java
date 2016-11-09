@@ -3,11 +3,13 @@ package com.cefalo.school.dp.week08.assignment.builder;
 import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
 import com.cefalo.school.dp.week08.assignment.component.complex.House;
+import com.cefalo.school.dp.week08.assignment.component.decoration.HouseUtilities;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 import com.cefalo.school.dp.week08.assignment.director.StoreyBuilderDirector;
 
 /**
  * Created by satyajit on 11/10/16.
+ * Steel and Glass Builder
  */
 public class SGHouseBuilder extends HouseBuilder {
   @Override
@@ -34,5 +36,11 @@ public class SGHouseBuilder extends HouseBuilder {
   @Override
   public void buildRoof() {
     builder.roof(new Roof("Flat Roof", new Dimensions(200.0, 100.0, 1.0), "Concrete+Brick"));
+  }
+
+  @Override
+  public void installUtilities() {
+    builder.houseUtilities(new HouseUtilities.Builder().gas("NLG").
+        electricity("Solar").telephone("T&T").internet("AOL").build());
   }
 }

@@ -22,5 +22,7 @@ public class HouseBuildingDirector {
     houseBuilder.buildFoundation();
     houseBuilder.buildStoreys();
     houseBuilder.buildRoof();
+    houseBuilder.installUtilities();
+    houseBuilder.decorateHouse();
   }
 }
