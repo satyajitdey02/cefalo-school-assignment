@@ -14,7 +14,7 @@ public class Handrails extends Component  {
 
   @Override
   public void details() {
-    System.out.println("Handrails built.");
+    System.out.println("\nHandrails built.");
     System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
         this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
         this.dimensions.getHeight(), this.materials));

@@ -28,6 +28,6 @@ public abstract class RoomBuilder {
   public abstract void buildCeiling();
 
   public void buildRoomSpecificSetup() {
-    System.out.println("Typical Room.");
+    System.out.println("\nTypical Room.");
   }
 }

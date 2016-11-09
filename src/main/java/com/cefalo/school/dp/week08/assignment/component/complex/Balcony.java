@@ -35,7 +35,7 @@ public class Balcony extends Component {
 
   @Override
   public void details() {
-    System.out.println("Balcony built.");
+    System.out.println("\nBalcony built.");
     floor.details();
     handrails.details();
   }

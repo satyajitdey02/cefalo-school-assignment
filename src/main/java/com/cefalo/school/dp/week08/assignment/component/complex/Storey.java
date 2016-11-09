@@ -98,7 +98,6 @@ public class Storey extends Component {
 
   @Override
   public void details() {
-    stairs.details();
     for (Room room : this.rooms) {
       room.details();
     }
@@ -111,6 +110,7 @@ public class Storey extends Component {
       balcony.details();
     }
 
-    System.out.println("Storey built.");
+    stairs.details();
+    System.out.println("\nStorey built.");
   }
 }

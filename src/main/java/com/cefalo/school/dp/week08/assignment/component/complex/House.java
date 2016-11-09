@@ -106,6 +106,6 @@ public class House extends Component {
     }
 
     roof.details();
-    System.out.println("House built.");
+    System.out.println("\nHouse built.");
   }
 }

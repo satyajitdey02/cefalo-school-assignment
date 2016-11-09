@@ -60,7 +60,7 @@ public class Stairs extends Component {
 
   @Override
   public void details() {
-    System.out.println(String.format("%s stairs built.", external ? "External" : "Internal"));
+    System.out.println(String.format("\n%s stairs built.", external ? "External" : "Internal"));
     System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
         this.type, this.dimensions.getLength(), this.dimensions.getWidth(), this.dimensions.getHeight(), this.materials));
 

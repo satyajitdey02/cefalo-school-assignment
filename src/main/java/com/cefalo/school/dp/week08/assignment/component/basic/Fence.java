@@ -14,7 +14,7 @@ public class Fence extends Component {
 
   @Override
   public void details() {
-    System.out.println("Fence built.");
+    System.out.println("\nFence built.");
     System.out.println(String.format("Type: %s.\nDimensions: %s X %s X %s.\nMaterials: %s",
         this.type, this.dimensions.getLength(), this.dimensions.getWidth(),
         this.dimensions.getHeight(), this.materials));
