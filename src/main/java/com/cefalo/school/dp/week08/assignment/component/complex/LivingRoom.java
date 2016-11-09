@@ -11,11 +11,19 @@ import java.util.List;
  */
 public class LivingRoom extends Room {
 
-  public LivingRoom() {
+  public static class Builder extends Room.Builder {
+
+    public Builder() {
+
+    }
+
+    public LivingRoom build() {
+      return new LivingRoom(this);
+    }
   }
 
-  public LivingRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String firePlace) {
-    super(floor, ceiling, walls);
+  private LivingRoom(Builder builder) {
+    super(builder);
   }
 
   @Override

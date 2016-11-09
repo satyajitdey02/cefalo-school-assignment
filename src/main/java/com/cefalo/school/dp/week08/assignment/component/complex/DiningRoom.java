@@ -13,26 +13,30 @@ public class DiningRoom extends Room {
 
   private String cabinet;
 
-  public DiningRoom() {
+  public static class Builder extends Room.Builder {
 
+    private String bCabinet;
+
+    public Builder() {
+    }
+
+    public Builder cabinet(String cabinet) {
+      this.bCabinet = cabinet;
+      return this;
+    }
+
+    public DiningRoom build() {
+      return new DiningRoom(this);
+    }
   }
 
-  public DiningRoom(Floor floor, Ceiling ceiling, List<Wall> walls, String cabinet) {
-    super(floor, ceiling, walls);
-    this.cabinet = cabinet;
+  private DiningRoom(Builder builder) {
+    super(builder);
+    this.cabinet = builder.bCabinet;
   }
 
   public String getCabinet() {
-    return cabinet;
-  }
-
-  public void setCabinet(String cabinet) {
-    this.cabinet = cabinet;
-  }
-
-  @Override
-  public String toString() {
-    return super.toString();
+    return this.cabinet;
   }
 
   @Override
@@ -40,7 +44,7 @@ public class DiningRoom extends Room {
     getFloor().details();
     getCeiling().details();
 
-    for(Wall wall : getWalls()) {
+    for (Wall wall : getWalls()) {
       wall.details();
     }
 

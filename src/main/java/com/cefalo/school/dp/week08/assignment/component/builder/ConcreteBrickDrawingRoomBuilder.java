@@ -13,25 +13,21 @@ import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
 
   public ConcreteBrickDrawingRoomBuilder() {
-    this.room = new DrawingRoom();
+    builder = new DrawingRoom.Builder();
   }
 
   @Override
   public void buildFloor() {
-    this.room.setFloor(new Floor("Concrete+Brick",
-        new Dimensions(20.0, 15.0, 0.0), "Concrete+Brick"));
+    builder.floor(new Floor("Concrete+Brick",
+        new Dimensions(8.0, 8.0, 0.0), "Concrete+Brick"));
   }
 
   @Override
   public void buildColumns() {
-    this.room.getColumns().add(new Column("Concrete+Brick",
-        new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"));
-    this.room.getColumns().add(new Column("Concrete+Brick",
-        new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"));
-    this.room.getColumns().add(new Column("Concrete+Brick",
-        new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"));
-    this.room.getColumns().add(new Column("Concrete+Brick",
-        new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"));
+    builder.column(new Column("Concrete+Brick", new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"))
+        .column(new Column("Concrete+Brick", new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"))
+        .column(new Column("Concrete+Brick", new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"))
+        .column(new Column("Concrete+Brick", new Dimensions(1.5, 1.5, 10.0), "Concrete+Brick"));
   }
 
   @Override
@@ -41,31 +37,31 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
     wallBuilderDirector.setWallBuilder(wallBuilder);
 
     wallBuilderDirector.constructWall();
-    this.room.getWalls().add(wallBuilder.getWall());
+    builder.wall(wallBuilder.getWall());
 
     wallBuilderDirector.constructWall();
-    this.room.getWalls().add(wallBuilder.getWall());
+    builder.wall(wallBuilder.getWall());
 
     wallBuilder = new ConcreteBrickWallWithDoorBuilder();
     wallBuilderDirector.setWallBuilder(wallBuilder);
     wallBuilderDirector.constructWall();
-    this.room.getWalls().add(wallBuilder.getWall());
+    builder.wall(wallBuilder.getWall());
 
 
     wallBuilder = new ConcreteBrickWallWithWindowBuilder();
     wallBuilderDirector.setWallBuilder(wallBuilder);
     wallBuilderDirector.constructWall();
-    this.room.getWalls().add(wallBuilder.getWall());
+    builder.wall(wallBuilder.getWall());
   }
 
   @Override
   public void buildCeiling() {
-    this.room.setCeiling(new Ceiling("Concrete+Brick",
-        new Dimensions(20.0, 15.0, 0.0), "Concrete+Brick"));
+    builder.ceiling(new Ceiling("Concrete+Brick",
+        new Dimensions(8.0, 8.0, 0.0), "Concrete+Brick"));
   }
 
   @Override
   public void buildRoomSpecificSetup() {
-    ((DrawingRoom)this.room).setFirePlace("Fireplace");
+    ((DrawingRoom.Builder) builder).fireplace("Fireplace");
   }
 }
