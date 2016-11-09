@@ -12,7 +12,7 @@ import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 /**
  * Created by satyajit on 11/1/16.
  */
-public class ConcreteBrickStoreyBuilder extends StoreyBuilder {
+public class CBStoreyBuilder extends StoreyBuilder {
 
   @Override
   public void buildNewStorey() {
@@ -29,22 +29,22 @@ public class ConcreteBrickStoreyBuilder extends StoreyBuilder {
   public void buildRooms() {
     RoomBuilderDirector roomBuilderDirector = new RoomBuilderDirector();
 
-    RoomBuilder roomBuilder = new ConcreteBrickLivingRoomBuilder();
+    RoomBuilder roomBuilder = new CBLivingRoomBuilder();
     roomBuilderDirector.setRoomBuilder(roomBuilder);
     roomBuilderDirector.constructRoom();
     builder.room(roomBuilder.getRoom());
 
-    roomBuilder = new ConcreteBrickDrawingRoomBuilder();
+    roomBuilder = new CBDrawingRoomBuilder();
     roomBuilderDirector.setRoomBuilder(roomBuilder);
     roomBuilderDirector.constructRoom();
     builder.room(roomBuilder.getRoom());
 
-    roomBuilder = new ConcreteBrickDiningRoomBuilder();
+    roomBuilder = new CBDiningRoomBuilder();
     roomBuilderDirector.setRoomBuilder(roomBuilder);
     roomBuilderDirector.constructRoom();
     builder.room(roomBuilder.getRoom());
 
-    roomBuilder = new ConcreteBrickBathRoomBuilder();
+    roomBuilder = new CBBathRoomBuilder();
     roomBuilderDirector.setRoomBuilder(roomBuilder);
     roomBuilderDirector.constructRoom();
     builder.room(roomBuilder.getRoom());

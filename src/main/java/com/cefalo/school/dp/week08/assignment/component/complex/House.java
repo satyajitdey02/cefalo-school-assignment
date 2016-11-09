@@ -2,9 +2,7 @@ package com.cefalo.school.dp.week08.assignment.component.complex;
 
 import com.cefalo.school.dp.week08.assignment.component.Buildable;
 import com.cefalo.school.dp.week08.assignment.component.Component;
-import com.cefalo.school.dp.week08.assignment.component.basic.Fence;
-import com.cefalo.school.dp.week08.assignment.component.basic.Foundation;
-import com.cefalo.school.dp.week08.assignment.component.basic.Roof;
+import com.cefalo.school.dp.week08.assignment.component.basic.*;
 import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -20,84 +18,124 @@ public class House extends Component implements Buildable {
   private List<Storey> storeys = new ArrayList<Storey>();
   private Roof roof;
 
-  /*Optional Fields*/
   private String lawn;
   private String walkWays;
   private String outdoorLighting;
   private String mailBox;
-  private List<Fence> fences;
+  private List<Fence> fences = new ArrayList<Fence>();
 
-  public House() {
+  public static class Builder {
+
+    private Foundation bFoundation;
+    private List<Storey> bStoreys = new ArrayList<Storey>();
+    private Roof bRoof;
+
+    private String bLawn;
+    private String bWalkWays;
+    private String bOutdoorLighting;
+    private String bMailBox;
+    private List<Fence> bFences = new ArrayList<Fence>();
+
+    public Builder() {
+
+    }
+
+    public Builder foundation(Foundation foundation) {
+      this.bFoundation = foundation;
+      return this;
+    }
+
+    public Builder storey(Storey storey) {
+      bStoreys.add(storey);
+      return this;
+    }
+
+    public Builder storeys(List<Storey> storeys) {
+      bStoreys.addAll(storeys);
+      return this;
+    }
+
+    public Builder roof(Roof roof) {
+      this.bRoof = roof;
+      return this;
+    }
+
+    public Builder lawn(String lawn) {
+      this.bLawn = lawn;
+      return this;
+    }
+
+    public Builder walkWays(String walkWays) {
+      this.bWalkWays = walkWays;
+      return this;
+    }
+
+    public Builder outdoorLighting(String outdoorLighting) {
+      this.bOutdoorLighting = outdoorLighting;
+      return this;
+    }
+
+    public Builder mailBox(String mailBox) {
+      this.bMailBox = mailBox;
+      return this;
+    }
+
+    public Builder fence(Fence fence) {
+      this.bFences.add(fence);
+      return this;
+    }
+
+    public Builder fences(List<Fence> fences) {
+      this.bFences.addAll(fences);
+      return this;
+    }
+
+    public House build() {
+      return new House(this);
+    }
   }
 
-  public House(Foundation foundation, List<Storey> storeys, Roof roof) {
-    this.foundation = foundation;
-    this.storeys = storeys;
-    this.roof = roof;
+  private House(Builder builder) {
+    this.foundation = builder.bFoundation;
+    this.storeys = builder.bStoreys;
+    this.roof = builder.bRoof;
+    this.lawn = builder.bLawn;
+    this.walkWays = builder.bWalkWays;
+    this.outdoorLighting = builder.bOutdoorLighting;
+    this.mailBox = builder.bMailBox;
+    this.fences = builder.bFences;
   }
 
   public Foundation getFoundation() {
     return foundation;
   }
 
-  public void setFoundation(Foundation foundation) {
-    this.foundation = foundation;
-  }
-
   public List<Storey> getStoreys() {
     return storeys;
-  }
-
-  public void setStoreys(List<Storey> storeys) {
-    this.storeys = storeys;
   }
 
   public Roof getRoof() {
     return roof;
   }
 
-  public void setRoof(Roof roof) {
-    this.roof = roof;
-  }
-
   public String getLawn() {
     return lawn;
-  }
-
-  public void setLawn(String lawn) {
-    this.lawn = lawn;
   }
 
   public String getWalkWays() {
     return walkWays;
   }
 
-  public void setWalkWays(String walkWays) {
-    this.walkWays = walkWays;
-  }
-
   public String getOutdoorLighting() {
     return outdoorLighting;
-  }
-
-  public void setOutdoorLighting(String outdoorLighting) {
-    this.outdoorLighting = outdoorLighting;
   }
 
   public String getMailBox() {
     return mailBox;
   }
 
-  public void setMailBox(String mailBox) {
-    this.mailBox = mailBox;
-  }
-
   public List<Fence> getFences() {
     return fences;
-  }
-
-  public void setFences(List<Fence> fences) {
-    this.fences = fences;
   }
 
   @Override

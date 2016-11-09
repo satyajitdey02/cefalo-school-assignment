@@ -7,20 +7,18 @@ import com.cefalo.school.dp.week08.assignment.component.complex.House;
  */
 public abstract class HouseBuilder {
 
-  protected House house;
+  protected House.Builder builder;
   protected StoreyBuilder storeyBuilder;
 
   public House getHouse() {
-    return house;
+    return builder.build();
   }
 
   public void setStoreyBuilder(StoreyBuilder storeyBuilder) {
     this.storeyBuilder = storeyBuilder;
   }
 
-  public void startBuildingNewHouse() {
-    this.house = new House();
-  }
+  public abstract void buildNewHouse();
 
   public abstract void buildFoundation();
 

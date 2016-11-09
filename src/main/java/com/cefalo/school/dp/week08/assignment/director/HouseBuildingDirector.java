@@ -18,7 +18,7 @@ public class HouseBuildingDirector {
   }
 
   public void constructHouse() {
-    houseBuilder.startBuildingNewHouse();
+    houseBuilder.buildNewHouse();
     houseBuilder.buildFoundation();
     houseBuilder.buildStoreys();
     houseBuilder.buildRoof();

@@ -3,17 +3,17 @@ package com.cefalo.school.dp.week08.assignment.builder;
 import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
 import com.cefalo.school.dp.week08.assignment.component.basic.Column;
 import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
-import com.cefalo.school.dp.week08.assignment.component.complex.DrawingRoom;
+import com.cefalo.school.dp.week08.assignment.component.complex.BathRoom;
 import com.cefalo.school.dp.week08.assignment.director.WallBuilderDirector;
 import com.cefalo.school.dp.week08.assignment.component.measurement.Dimensions;
 
 /**
  * Created by satyajit on 11/8/16.
  */
-public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
+public class CBBathRoomBuilder extends RoomBuilder {
 
-  public ConcreteBrickDrawingRoomBuilder() {
-    builder = new DrawingRoom.Builder();
+  public CBBathRoomBuilder() {
+    builder = new BathRoom.Builder();
   }
 
   @Override
@@ -33,7 +33,7 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
   @Override
   public void buildWalls() {
     WallBuilderDirector wallBuilderDirector = new WallBuilderDirector();
-    WallBuilder wallBuilder = new ConcreteBrickWallBuilder();
+    WallBuilder wallBuilder = new CBWallBuilder();
     wallBuilderDirector.setWallBuilder(wallBuilder);
 
     wallBuilderDirector.constructWall();
@@ -42,13 +42,13 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
     wallBuilderDirector.constructWall();
     builder.wall(wallBuilder.getWall());
 
-    wallBuilder = new ConcreteBrickWallWithDoorBuilder();
+    wallBuilder = new CBWallWithDoorBuilder();
     wallBuilderDirector.setWallBuilder(wallBuilder);
     wallBuilderDirector.constructWall();
     builder.wall(wallBuilder.getWall());
 
 
-    wallBuilder = new ConcreteBrickWallWithWindowBuilder();
+    wallBuilder = new CBWallWithWindowBuilder();
     wallBuilderDirector.setWallBuilder(wallBuilder);
     wallBuilderDirector.constructWall();
     builder.wall(wallBuilder.getWall());
@@ -62,6 +62,7 @@ public class ConcreteBrickDrawingRoomBuilder extends RoomBuilder {
 
   @Override
   public void buildRoomSpecificSetup() {
-    ((DrawingRoom.Builder) builder).fireplace("Fireplace");
+    ((BathRoom.Builder) builder).shower("Shower");
+    ((BathRoom.Builder) builder).bathtub("Bathtub");
   }
 }
