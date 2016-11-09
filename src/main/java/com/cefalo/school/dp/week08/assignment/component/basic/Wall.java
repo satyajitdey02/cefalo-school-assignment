@@ -75,10 +75,6 @@ public class Wall extends Component {
     return doors;
   }
 
-  public Builder getBuilder(Wall wall) {
-    return new Builder(this);
-  }
-
   @Override
   public void details() {
     System.out.println("Wall built.");

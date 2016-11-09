@@ -10,7 +10,7 @@ public class ConcreteBrickWallBuilder extends WallBuilder {
 
   @Override
   public void buildNewWall() {
-    wall = new Wall.Builder("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick").build();
+    builder = new Wall.Builder("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick");
   }
 
   @Override

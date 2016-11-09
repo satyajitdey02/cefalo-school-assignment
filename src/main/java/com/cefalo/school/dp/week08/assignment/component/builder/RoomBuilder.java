@@ -8,11 +8,11 @@ import com.cefalo.school.dp.week08.assignment.component.complex.Room;
  */
 public abstract class RoomBuilder {
 
-  protected Room room;
+  protected  Room.Builder builder;
   protected WallBuilder wallBuilder;
 
   public Room getRoom() {
-    return this.room;
+    return builder.build();
   }
 
   public void setWallBuilder(WallBuilder wallBuilder) {

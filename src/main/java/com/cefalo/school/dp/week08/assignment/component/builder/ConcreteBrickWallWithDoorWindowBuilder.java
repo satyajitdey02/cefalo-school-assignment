@@ -12,23 +12,16 @@ public class ConcreteBrickWallWithDoorWindowBuilder extends WallBuilder {
 
   @Override
   public void buildNewWall() {
-    //wall = new Wall("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick");
-    wall = new Wall.Builder("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick").build();
+    builder = new Wall.Builder("Concrete+Brick", new Dimensions(8.0, 1.0, 8.0), "Concrete+Brick");
   }
 
   @Override
   public void buildWindow() {
-    /*this.wall.getWindows().add(new Window("Glass+Steel",
-        new Dimensions(0.0,4.0, 4.0), "Glass+Steel"));*/
-    wall.getBuilder(wall).window(new Window("Wood",
-        new Dimensions(0.0, 4.0, 4.0), "Wood")).build();
+    builder.window(new Window("Wood", new Dimensions(0.0, 4.0, 4.0), "Wood"));
   }
 
   @Override
   public void buildDoor() {
-    wall.getBuilder(wall).door(new Door("Wood",
-        new Dimensions(0.0, 4.0, 8.0), "Wood")).build();
-    /*this.wall.getDoors().add(new Door("Wood",
-        new Dimensions(0.0,4.0, 8.0), "Wood"));*/
+    builder.door(new Door("Wood", new Dimensions(0.0,4.0, 8.0), "Wood"));
   }
 }

@@ -7,10 +7,10 @@ import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
  */
 public abstract class WallBuilder {
 
-  protected Wall wall;
+  protected Wall.Builder builder;
 
   public Wall getWall() {
-    return wall;
+    return builder.build();
   }
 
   public abstract void buildNewWall();

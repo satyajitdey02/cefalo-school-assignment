@@ -7,20 +7,18 @@ import com.cefalo.school.dp.week08.assignment.component.complex.Storey;
  */
 public abstract class StoreyBuilder {
 
-  protected Storey storey;
+  protected Storey.Builder builder;
   protected RoomBuilder roomBuilder;
 
   public Storey getStorey() {
-    return this.storey;
+    return builder.build();
   }
 
   public void setRoomBuilder(RoomBuilder roomBuilder) {
     this.roomBuilder = roomBuilder;
   }
 
-  public void buildNewStorey() {
-    this.storey = new Storey();
-  }
+  public abstract void buildNewStorey();
 
   public abstract void buildStairs();
 

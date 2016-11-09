@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by satyajit on 10/31/16.
  */
-public class Storey  extends Component{
+public class Storey extends Component {
   private int number;
   private Stairs stairs;
   private List<Room> rooms = new ArrayList<Room>();
@@ -19,76 +19,98 @@ public class Storey  extends Component{
   private Corridor corridor;
   private List<Balcony> balconies = new ArrayList<Balcony>();
 
-  public Storey() {
+  public static class Builder {
+    /*Mandatory Fields*/
+    private int bNumber;
 
+    /*Optional Fields*/
+    private Stairs bStairs;
+    private List<Room> bRooms =  new ArrayList<Room>();
+    private Corridor bCorridor;
+    private List<Balcony> bBalconies = new ArrayList<Balcony>();
+
+    public Builder(int number) {
+      this.bNumber = number;
+    }
+
+    public Builder stairs(Stairs stairs) {
+      this.bStairs = stairs;
+      return this;
+    }
+
+    public Builder room(Room room) {
+      this.bRooms.add(room);
+      return this;
+    }
+
+    public Builder rooms(List<Room> rooms) {
+      this.bRooms.addAll(rooms);
+      return this;
+    }
+
+    public Builder corridor(Corridor corridor) {
+      this.bCorridor = corridor;
+      return this;
+    }
+
+    public Builder balcony(Balcony balcony) {
+      this.bBalconies.add(balcony);
+      return this;
+    }
+
+    public Builder balconies(List<Balcony> balconies) {
+      this.bBalconies.addAll(balconies);
+      return this;
+    }
+
+    public Storey build() {
+      return new Storey(this);
+    }
   }
 
-  public Storey(int number) {
-    this.number = number;
-  }
-
-  public Storey(int number, Stairs stairs, List<Room> rooms, Corridor corridor, List<Balcony> balconies) {
-    this.number = number;
-    this.stairs = stairs;
-    this.rooms = rooms;
-    this.corridor = corridor;
-    this.balconies = balconies;
+  private Storey(Builder builder) {
+    this.number = builder.bNumber;
+    this.stairs = builder.bStairs;
+    this.rooms = builder.bRooms;
+    this.corridor = builder.bCorridor;
+    this.balconies = builder.bBalconies;
   }
 
   public int getNumber() {
     return number;
   }
 
-  public void setNumber(int number) {
-    this.number = number;
-  }
-
   public Stairs getStairs() {
     return stairs;
-  }
-
-  public void setStairs(Stairs stairs) {
-    this.stairs = stairs;
   }
 
   public List<Room> getRooms() {
     return rooms;
   }
 
-  public void setRooms(List<Room> rooms) {
-    this.rooms = rooms;
-  }
-
   public Corridor getCorridor() {
     return corridor;
-  }
-
-  public void setCorridor(Corridor corridor) {
-    this.corridor = corridor;
   }
 
   public List<Balcony> getBalconies() {
     return balconies;
   }
 
-  public void setBalconies(List<Balcony> balconies) {
-    this.balconies = balconies;
-  }
-
   @Override
   public void details() {
-    System.out.println("Storey built.");
     stairs.details();
-    for(Room room : this.rooms) {
+    for (Room room : this.rooms) {
       room.details();
     }
 
-    if(this.corridor != null) {
+    if (this.corridor != null) {
       corridor.details();
     }
 
-    for(Balcony balcony : this.balconies) {
+    for (Balcony balcony : this.balconies) {
       balcony.details();
     }
+
+    System.out.println("Storey built.");
   }
 }
