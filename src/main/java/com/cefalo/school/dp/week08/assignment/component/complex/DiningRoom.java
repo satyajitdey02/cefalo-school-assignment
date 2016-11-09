@@ -1,12 +1,7 @@
 package com.cefalo.school.dp.week08.assignment.component.complex;
 
-import com.cefalo.school.dp.week08.assignment.component.basic.Ceiling;
-import com.cefalo.school.dp.week08.assignment.component.basic.Floor;
-import com.cefalo.school.dp.week08.assignment.component.basic.Wall;
 import com.cefalo.school.dp.week08.assignment.exception.WrongArchitectureException;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.List;
 
 /**
  * Created by satyajit on 10/31/16.
