@@ -15,17 +15,17 @@ public class ReadCommand implements Command {
   }
 
   @Override
-  public Response execute() {
-    return this.dao.find();
+  public void execute() {
+    this.dao.find();
   }
 
   @Override
-  public Response undo() {
-    return new NoCommand().undo();
+  public void undo() {
+    System.out.println("No undo on read operation.");
   }
 
   @Override
-  public Response redo() {
-    return new NoCommand().redo();
+  public void redo() {
+    System.out.println("No redo on read operation.");
   }
 }

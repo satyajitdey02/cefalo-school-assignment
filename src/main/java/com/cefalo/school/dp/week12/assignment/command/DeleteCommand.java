@@ -6,7 +6,7 @@ import com.cefalo.school.dp.week12.assignment.receiver.DAO;
 /**
  * Created by satyajit on 11/11/2016.
  */
-public class DeleteCommand /*implements Command*/ {
+public class DeleteCommand implements Command {
 
   private DAO dao;
 
@@ -14,18 +14,18 @@ public class DeleteCommand /*implements Command*/ {
     this.dao = dao;
   }
 
- /* @Override
-  public Response execute() {
-    return this.dao.remove();
+  @Override
+  public void execute() {
+    dao.remove();
   }
 
   @Override
-  public Response undo() {
-    return this.dao.save();
+  public void undo() {
+    dao.save();
   }
 
   @Override
-  public Response redo() {
-    return this.dao.remove();
-  }*/
+  public void redo() {
+    dao.remove();
+  }
 }

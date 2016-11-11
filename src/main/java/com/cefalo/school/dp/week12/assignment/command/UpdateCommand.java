@@ -15,17 +15,17 @@ public class UpdateCommand implements Command {
   }
 
   @Override
-  public Response execute() {
-    return this.dao.update();
+  public void execute() {
+    this.dao.update();
   }
 
   @Override
-  public Response undo() {
-    return this.dao.update();
+  public void undo() {
+    this.dao.update();
   }
 
   @Override
-  public Response redo() {
-    return this.dao.update();
+  public void redo() {
+    this.dao.update();
   }
 }

@@ -7,9 +7,9 @@ import com.cefalo.school.dp.week12.assignment.Response.Response;
  */
 public interface Command {
 
-  public Response execute();
+  public void execute();
 
-  public Response undo();
+  public void undo();
 
-  public Response redo();
+  public void redo();
 }

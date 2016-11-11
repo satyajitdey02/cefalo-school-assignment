@@ -1,11 +1,8 @@
 package com.cefalo.school.dp.week12.assignment;
 
 import com.cefalo.school.dp.week12.assignment.Invoker.DatabaseManager;
-import com.cefalo.school.dp.week12.assignment.Response.Response;
-import com.cefalo.school.dp.week12.assignment.command.Command;
-import com.cefalo.school.dp.week12.assignment.command.CreateCommand;
-import com.cefalo.school.dp.week12.assignment.command.ReadCommand;
-import com.cefalo.school.dp.week12.assignment.receiver.Customer;
+import com.cefalo.school.dp.week12.assignment.command.*;
+import com.cefalo.school.dp.week12.assignment.receiver.DAO;
 
 /**
  * Created by satyajit on 11/11/2016.
@@ -14,19 +11,33 @@ public class Client {
 
   public static void main(String[] args) {
     DatabaseManager databaseManager = new DatabaseManager();
-    Customer satyajit = new Customer("satyajit@gmail.com", "Satyajit Dey", "Dhaka");
-    Customer humayun = new Customer("humayun@gmail.com", "Humayun Ahmed", "Dhaka");
 
-    /*Command createCommand = new CreateCommand(satyajit);
+    DAO dao = new DAO();
+    Command createCommand = new CreateCommand(dao);
     databaseManager.setCommand(createCommand);
-    Response response = databaseManager.saveRecord();
-    System.out.println(response.getData().toString());
+    databaseManager.saveRecord();
 
-    createCommand = new CreateCommand(humayun);
-    databaseManager.setCommand(createCommand);
-    response = databaseManager.saveRecord();
-    System.out.println(response.getData().toString());*/
 
-    //Command readCommand = new ReadCommand();
+    Command readCommand = new ReadCommand(dao);
+    databaseManager.setCommand(readCommand);
+    databaseManager.readRecord();
+
+    Command updateCommand = new UpdateCommand(dao);
+    databaseManager.setCommand(updateCommand);
+    databaseManager.updateRecord();
+
+    Command deleteCommand = new DeleteCommand(dao);
+    databaseManager.setCommand(deleteCommand);
+    databaseManager.deleteRecord();
+
+    databaseManager.undoOperation();
+    databaseManager.undoOperation();
+    databaseManager.undoOperation();
+    databaseManager.undoOperation();
+
+    databaseManager.redoOperation();
+    databaseManager.redoOperation();
+    databaseManager.redoOperation();
+
   }
 }

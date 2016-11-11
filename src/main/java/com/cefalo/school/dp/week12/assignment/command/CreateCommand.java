@@ -6,7 +6,7 @@ import com.cefalo.school.dp.week12.assignment.receiver.DAO;
 /**
  * Created by satyajit on 11/11/2016.
  */
-public class CreateCommand /*implements Command */{
+public class CreateCommand implements Command {
 
   private DAO dao;
 
@@ -14,18 +14,18 @@ public class CreateCommand /*implements Command */{
     this.dao = dao;
   }
 
- /* @Override
-  public Response execute() {
-    return this.dao.save();
+  @Override
+  public void execute() {
+    dao.save();
   }
 
   @Override
-  public Response undo() {
-    return this.dao.remove();
+  public void undo() {
+    dao.remove();
   }
 
   @Override
-  public Response redo() {
-    return this.dao.save();
-  }*/
+  public void redo() {
+    dao.save();
+  }
 }

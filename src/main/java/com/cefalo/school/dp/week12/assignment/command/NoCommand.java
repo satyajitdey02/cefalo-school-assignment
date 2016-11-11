@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class NoCommand implements Command {
 
   @Override
-  public Response execute() {
-    return new Response(Status.NO_STATUS, "Nothing to execute", new ArrayList<String>());
+  public void execute() {
+    System.out.println("Nothing to execute.");
   }
 
   @Override
-  public Response undo() {
-    return new Response(Status.NO_STATUS, "Nothing to undo", new ArrayList<String>());
+  public void undo() {
+    System.out.println("Nothing to undo.");
   }
 
   @Override
-  public Response redo() {
-    return new Response(Status.NO_STATUS, "Nothing to redo", new ArrayList<String>());
+  public void redo() {
+    System.out.println("Nothing to redo.");
   }
 }

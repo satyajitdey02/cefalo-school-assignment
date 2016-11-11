@@ -36,61 +36,45 @@ public class DatabaseManager {
     this.command = command;
   }
 
-  public Response saveRecord() {
-    Response response = command.execute();
+  public void saveRecord() {
+    command.execute();
     undoCommands.push(command);
-
-    return response;
   }
 
-  public Response readRecord() {
-    Response response = command.execute();
+  public void readRecord() {
+    command.execute();
     undoCommands.push(command);
-
-    return response;
   }
 
-  public Response updateRecord() {
-    Response response = command.execute();
+  public void updateRecord() {
+    command.execute();
     undoCommands.push(command);
-
-    return response;
   }
 
-  public Response deleteRecord() {
-    Response response = command.execute();
+  public void deleteRecord() {
+    command.execute();
     undoCommands.push(command);
-
-    return response;
   }
 
-  public Response undoOperation() {
+  public void undoOperation() {
     if (undoCommands.empty()) {
       undoCommands.push(noCommand);
     }
 
     Command command = undoCommands.pop();
-    Response response = command.undo();
+    command.undo();
 
-    if (response.getStatus() == Status.SUCCESS) {
-      redoCommands.push(command);
-    }
-
-    return response;
+    redoCommands.push(command);
   }
 
-  public Response redoOperation() {
+  public void redoOperation() {
     if (redoCommands.empty()) {
       redoCommands.push(noCommand);
     }
 
     Command command = redoCommands.pop();
-    Response response = command.redo();
+    command.redo();
 
-    if (response.getStatus() == Status.SUCCESS) {
-      undoCommands.push(command);
-    }
-
-    return response;
+    undoCommands.push(command);
   }
 }

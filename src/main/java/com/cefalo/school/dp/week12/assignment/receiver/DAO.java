@@ -8,24 +8,19 @@ import java.util.List;
  */
 public class DAO {
 
-  protected List<Entity> entities = new ArrayList<Entity>();
-
-  public Entity save(Entity entity) {
-    entity.setId(entities.size() + 1);
-    entities.add(entity);
-
-    return entity;
+  public void save() {
+    System.out.println("Entity saved");
   }
 
-  public List<Entity> find() {
-    return entities;
+  public void find() {
+    System.out.println("Entity read");
   }
 
-  public Entity update(Entity entity) {
-    return save(entity);
+  public void update() {
+    System.out.println("Entity updated");
   }
 
-  public void remove(Entity entity) {
-    entities.remove(entity);
+  public void remove() {
+    System.out.println("Entity removed");
   }
 }
