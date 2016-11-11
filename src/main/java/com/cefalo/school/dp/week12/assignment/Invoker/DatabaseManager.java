@@ -1,80 +1,104 @@
 package com.cefalo.school.dp.week12.assignment.Invoker;
 
-import com.cefalo.school.dp.week12.assignment.Response.Response;
-import com.cefalo.school.dp.week12.assignment.Response.Status;
-import com.cefalo.school.dp.week12.assignment.command.Command;
-import com.cefalo.school.dp.week12.assignment.command.NoCommand;
+import com.cefalo.school.dp.week12.assignment.command.*;
+import com.cefalo.school.dp.week12.assignment.command.Void;
+import com.cefalo.school.dp.week12.assignment.entity.Entity;
+import com.cefalo.school.dp.week12.assignment.history.HistoricalData;
+import com.cefalo.school.dp.week12.assignment.history.History;
 
-import java.util.Stack;
+import java.util.Map;
 
 /**
  * Created by satyajit on 11/11/2016.
  */
-public class DatabaseManager {
+public class DatabaseManager<T extends Entity> {
 
-  private Command command;
-  private Command noCommand = new NoCommand();
+  private T t;
+  private Command<T> command;
+  private Command<T> noCommand = new Void<T>();
 
-  private Stack<Command> undoCommands = new Stack<Command>();
-  private Stack<Command> redoCommands = new Stack<Command>();
+  private History<T> undos = new History<T>();
+  private History<T> redos = new History<T>();
 
   public DatabaseManager() {
-    initUndoRedoCommand();
+    resetUndos();
+    resetRedos();
   }
 
-  public DatabaseManager(Command command) {
+  public DatabaseManager(Command<T> command) {
     this.command = command;
-    initUndoRedoCommand();
+    resetUndos();
+    resetRedos();
   }
 
-  private void initUndoRedoCommand() {
-    undoCommands.push(noCommand);
-    redoCommands.push(noCommand);
-  }
-
-  public void setCommand(Command command) {
+  public void setCommand(Command<T> command) {
     this.command = command;
   }
 
-  public void saveRecord() {
-    command.execute();
-    undoCommands.push(command);
+  public T saveRecord(T t) {
+    T result = command.execute(t);
+    Command<T> deleteCommand = new Delete<T>((this.command).getDao());
+
+    HistoricalData<T> historicalData = new HistoricalData<>(result, deleteCommand);
+    undos.pushHistory(historicalData);
+
+    return result;
   }
 
-  public void readRecord() {
-    command.execute();
-    undoCommands.push(command);
+  public Map<Integer, T> readRecords() {
+    return command.read();
   }
 
-  public void updateRecord() {
-    command.execute();
-    undoCommands.push(command);
+  public T updateRecord(T t) {
+    T currentData = this.command.getDao().find().get(t.getId());
+    T result = command.execute(t);
+    Command<T> updateCommand = new Update<T>(this.command.getDao());
+
+    HistoricalData<T> historicalData = new HistoricalData<>(currentData, updateCommand);
+    undos.pushHistory(historicalData);
+
+    return result;
   }
 
-  public void deleteRecord() {
-    command.execute();
-    undoCommands.push(command);
+  public void deleteRecord(T t) {
+    T result = command.execute(t);
+    Command<T> createCommand = new Create<>(this.command.getDao());
+
+    HistoricalData<T> historicalData = new HistoricalData<>(t, createCommand);
+    undos.pushHistory(historicalData);
   }
 
   public void undoOperation() {
-    if (undoCommands.empty()) {
-      undoCommands.push(noCommand);
+    if (undos.empty()) {
+      resetUndos();
     }
 
-    Command command = undoCommands.pop();
-    command.undo();
+    HistoricalData<T> historicalData = undos.pop();
+    T historicalCommandData = historicalData.getT();
+    Command<T> historicalCommand = historicalData.getCommand();
+    historicalCommand.execute(historicalCommandData);
 
-    redoCommands.push(command);
+    redos.push(historicalData);
   }
 
   public void redoOperation() {
-    if (redoCommands.empty()) {
-      redoCommands.push(noCommand);
+    if (redos.empty()) {
+      resetRedos();
     }
 
-    Command command = redoCommands.pop();
-    command.redo();
+    HistoricalData<T> historicalData = redos.pop();
+    T commandData = historicalData.getT();
+    Command<T> command = historicalData.getCommand();
+    command.execute(commandData);
 
-    undoCommands.push(command);
+    undos.push(historicalData);
+  }
+
+  private void resetUndos() {
+    undos.pushHistory(new HistoricalData<T>(null, noCommand));
+  }
+
+  private void resetRedos() {
+    redos.pushHistory(new HistoricalData<T>(null, noCommand));
   }
 }

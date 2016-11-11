@@ -1,26 +1,33 @@
 package com.cefalo.school.dp.week12.assignment.receiver;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.cefalo.school.dp.week12.assignment.entity.Entity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by satyajit on 11/11/2016.
  */
-public class DAO {
+public class DAO<T extends Entity> {
 
-  public void save() {
-    System.out.println("Entity saved");
+  private Map<Integer, T> entities = new HashMap<Integer, T>();
+
+  public T save(T t) {
+    t.setId(entities.size() + 1);
+    entities.put(t.getId(), t);
+    return t;
   }
 
-  public void find() {
-    System.out.println("Entity read");
+  public Map<Integer, T> find() {
+    return entities;
   }
 
-  public void update() {
-    System.out.println("Entity updated");
+  public T update(T t) {
+    entities.put(t.getId(), t);
+    return t;
   }
 
-  public void remove() {
-    System.out.println("Entity removed");
+  public void remove(T t) {
+    entities.remove(t.getId());
   }
 }

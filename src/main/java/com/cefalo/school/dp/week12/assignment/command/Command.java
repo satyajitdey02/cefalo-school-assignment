@@ -1,15 +1,22 @@
 package com.cefalo.school.dp.week12.assignment.command;
 
-import com.cefalo.school.dp.week12.assignment.Response.Response;
+import com.cefalo.school.dp.week12.assignment.entity.Entity;
+import com.cefalo.school.dp.week12.assignment.receiver.DAO;
+
+import java.util.Map;
 
 /**
  * Created by satyajit on 11/11/2016.
  */
-public interface Command {
+public abstract class Command<T extends Entity> {
 
-  public void execute();
+  protected DAO<T> dao;
 
-  public void undo();
+  public abstract T execute(T t);
 
-  public void redo();
+  public abstract Map<Integer, T> read();
+
+  public DAO<T> getDao() {
+    return dao;
+  }
 }

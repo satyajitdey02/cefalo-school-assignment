@@ -1,0 +1,26 @@
+package com.cefalo.school.dp.week12.assignment.command;
+
+import com.cefalo.school.dp.week12.assignment.entity.Entity;
+import com.cefalo.school.dp.week12.assignment.receiver.DAO;
+
+import java.util.Map;
+
+/**
+ * Created by satyajit on 11/11/2016.
+ */
+public class Update<T extends Entity> extends Command<T> {
+
+  public Update(DAO dao) {
+    this.dao = dao;
+  }
+
+  @Override
+  public T execute(T t) {
+    return dao.update(t);
+  }
+
+  @Override
+  public Map<Integer, T> read() {
+    throw new UnsupportedOperationException("Read is not supported from UPDATE command.");
+  }
+}

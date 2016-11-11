@@ -1,7 +1,5 @@
 package com.cefalo.school.dp.week12.assignment.Response;
 
-import java.util.List;
-
 /**
  * Created by satyajit on 11/11/2016.
  */
