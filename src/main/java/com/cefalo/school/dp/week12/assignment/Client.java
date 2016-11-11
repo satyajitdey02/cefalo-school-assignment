@@ -26,20 +26,25 @@ public class Client {
     Command readCommand = new Read(dao);
     databaseManager.setCommand(readCommand);
     Map<Integer, Entity> records = databaseManager.readRecords();
+
+    System.out.println("-------------------After saving Entities----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }
 
-    System.out.println("--------------------------------");
-
-    Entity firstRecord = records.get(1);
-    firstRecord.setValue(firstRecord.getValue() + "-The Legend");
+    Entity recordToUpdate = new Entity(records.get(1));
+    recordToUpdate.setValue(recordToUpdate.getValue() + "-The Legend");
     Command updateCommand = new Update(dao);
     databaseManager.setCommand(updateCommand);
-    firstRecord = databaseManager.updateRecord(firstRecord);
-    System.out.println(firstRecord.getId() + " : " + firstRecord.getValue());
+    databaseManager.updateRecord(recordToUpdate);
 
-    System.out.println("--------------------------------");
+    databaseManager.setCommand(readCommand);
+    records = databaseManager.readRecords();
+
+    System.out.println("-------------------After updating Entity----------------");
+    for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
+      System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
+    }
 
     Entity lastRecord = records.get(records.size());
     Command deleteCommand = new Delete(dao);
@@ -48,24 +53,35 @@ public class Client {
 
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
+
+    System.out.println("-------------------After deleting Entity----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }
 
-    System.out.println("--------------------------------");
     databaseManager.undoOperation();
-
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
+
+    System.out.println("-------------------After first Undo----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }
 
-    System.out.println("--------------------------------");
     databaseManager.undoOperation();
-
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
+
+    System.out.println("-------------------After second Undo----------------");
+    for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
+      System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
+    }
+
+    databaseManager.undoOperation();
+    databaseManager.setCommand(readCommand);
+    records = databaseManager.readRecords();
+
+    System.out.println("-------------------After third Undo----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }

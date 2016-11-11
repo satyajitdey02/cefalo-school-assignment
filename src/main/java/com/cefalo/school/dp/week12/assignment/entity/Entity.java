@@ -12,9 +12,13 @@ public class Entity {
     this.value = value;
   }
 
-  public Entity(int id, String value) {
+  private Entity(int id, String value) {
     this.id = id;
     this.value = value;
+  }
+
+  public Entity(Entity entity) {
+    this(entity.getId(), entity.getValue());
   }
 
   public int getId() {
