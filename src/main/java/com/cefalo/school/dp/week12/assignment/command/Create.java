@@ -23,4 +23,14 @@ public class Create<T extends Entity> extends Command<T> {
   public Map<Integer, T> read() {
     throw new UnsupportedOperationException("Read is not supported from CREATE command.");
   }
+
+  @Override
+  public void undo(T t) {
+    dao.remove(t);
+  }
+
+  @Override
+  public void redo(T t) {
+    execute(t);
+  }
 }

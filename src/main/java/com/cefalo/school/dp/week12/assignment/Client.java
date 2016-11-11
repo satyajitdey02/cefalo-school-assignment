@@ -63,7 +63,7 @@ public class Client {
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
 
-    System.out.println("-------------------After first Undo----------------");
+    System.out.println("-------------------After Undo----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }
@@ -72,7 +72,7 @@ public class Client {
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
 
-    System.out.println("-------------------After second Undo----------------");
+    System.out.println("-------------------After Undo----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }
@@ -81,7 +81,25 @@ public class Client {
     databaseManager.setCommand(readCommand);
     records = databaseManager.readRecords();
 
-    System.out.println("-------------------After third Undo----------------");
+    System.out.println("-------------------After Undo----------------");
+    for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
+      System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
+    }
+
+    databaseManager.redoOperation();
+    databaseManager.setCommand(readCommand);
+    records = databaseManager.readRecords();
+
+    System.out.println("-------------------After Redo----------------");
+    for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
+      System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
+    }
+
+    databaseManager.redoOperation();
+    databaseManager.setCommand(readCommand);
+    records = databaseManager.readRecords();
+
+    System.out.println("-------------------After Redo----------------");
     for (Map.Entry<Integer, Entity> entry : records.entrySet()) {
       System.out.println(entry.getValue().getId() + " : " + entry.getValue().getValue());
     }

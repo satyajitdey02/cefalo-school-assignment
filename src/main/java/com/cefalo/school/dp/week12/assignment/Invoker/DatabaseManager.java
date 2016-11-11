@@ -76,7 +76,7 @@ public class DatabaseManager<T extends Entity> {
     HistoricalData<T> historicalData = undos.pop();
     T historicalCommandData = historicalData.getT();
     Command<T> historicalCommand = historicalData.getCommand();
-    historicalCommand.execute(historicalCommandData);
+    historicalCommand.undo(historicalCommandData);
 
     redos.push(historicalData);
   }
@@ -89,7 +89,7 @@ public class DatabaseManager<T extends Entity> {
     HistoricalData<T> historicalData = redos.pop();
     T commandData = historicalData.getT();
     Command<T> command = historicalData.getCommand();
-    command.execute(commandData);
+    command.redo(commandData);
 
     undos.push(historicalData);
   }

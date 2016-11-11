@@ -16,6 +16,10 @@ public abstract class Command<T extends Entity> {
 
   public abstract Map<Integer, T> read();
 
+  public abstract void undo(T t);
+
+  public abstract void redo(T t);
+
   public DAO<T> getDao() {
     return dao;
   }

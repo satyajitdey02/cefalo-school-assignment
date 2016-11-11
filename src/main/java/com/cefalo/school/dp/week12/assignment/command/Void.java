@@ -21,4 +21,14 @@ public class Void<T extends Entity> extends Command<T> {
   public Map<Integer, T> read() {
     throw new UnsupportedOperationException("Read is not supported from NO command.");
   }
+
+  @Override
+  public void undo(T t) {
+    throw new UnsupportedOperationException("Undo is not supported from NO command.");
+  }
+
+  @Override
+  public void redo(T t) {
+    throw new UnsupportedOperationException("Redo is not supported from NO command.");
+  }
 }

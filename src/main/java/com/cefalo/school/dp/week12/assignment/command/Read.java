@@ -23,4 +23,14 @@ public class Read<T extends Entity> extends Command<T> {
   public Map<Integer, T> read() {
     return dao.find();
   }
+
+  @Override
+  public void undo(T t) {
+    throw new UnsupportedOperationException("Undo is not supported from READ Command.");
+  }
+
+  @Override
+  public void redo(T t) {
+    throw new UnsupportedOperationException("Redo is not supported from READ Command.");
+  }
 }

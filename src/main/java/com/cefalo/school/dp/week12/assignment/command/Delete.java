@@ -24,4 +24,14 @@ public class Delete<T extends Entity> extends Command<T> {
   public Map<Integer, T> read() {
     throw new UnsupportedOperationException("Read is not supported from DELETE command.");
   }
+
+  @Override
+  public void undo(T t) {
+    dao.save(t);
+  }
+
+  @Override
+  public void redo(T t) {
+    execute(t);
+  }
 }
