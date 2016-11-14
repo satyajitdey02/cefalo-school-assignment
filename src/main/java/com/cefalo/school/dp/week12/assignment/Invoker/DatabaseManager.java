@@ -37,9 +37,7 @@ public class DatabaseManager<T extends Entity> {
 
   public T saveRecord(T t) {
     T result = command.execute(t);
-    Command<T> deleteCommand = new Delete<T>((this.command).getDao());
-
-    HistoricalData<T> historicalData = new HistoricalData<>(result, deleteCommand);
+    HistoricalData<T> historicalData = new HistoricalData<>(result, command);
     undos.pushHistory(historicalData);
 
     return result;
@@ -52,9 +50,8 @@ public class DatabaseManager<T extends Entity> {
   public T updateRecord(T t) {
     T currentData = this.command.getDao().find().get(t.getId());
     T result = command.execute(t);
-    Command<T> updateCommand = new Update<T>(this.command.getDao());
 
-    HistoricalData<T> historicalData = new HistoricalData<>(currentData, updateCommand);
+    HistoricalData<T> historicalData = new HistoricalData<>(currentData, this.command);
     undos.pushHistory(historicalData);
 
     return result;
@@ -62,9 +59,7 @@ public class DatabaseManager<T extends Entity> {
 
   public void deleteRecord(T t) {
     T result = command.execute(t);
-    Command<T> createCommand = new Create<>(this.command.getDao());
-
-    HistoricalData<T> historicalData = new HistoricalData<>(t, createCommand);
+    HistoricalData<T> historicalData = new HistoricalData<>(t, command);
     undos.pushHistory(historicalData);
   }
 
@@ -75,10 +70,11 @@ public class DatabaseManager<T extends Entity> {
 
     HistoricalData<T> historicalData = undos.pop();
     T historicalCommandData = historicalData.getT();
+
     Command<T> historicalCommand = historicalData.getCommand();
     historicalCommand.undo(historicalCommandData);
 
-    redos.push(historicalData);
+    redos.pushHistory(historicalData);
   }
 
   public void redoOperation() {
@@ -87,11 +83,12 @@ public class DatabaseManager<T extends Entity> {
     }
 
     HistoricalData<T> historicalData = redos.pop();
-    T commandData = historicalData.getT();
-    Command<T> command = historicalData.getCommand();
-    command.redo(commandData);
+    T historicalCommandData = historicalData.getT();
 
-    undos.push(historicalData);
+    Command<T> historicalCommand = historicalData.getCommand();
+    historicalCommand.redo(historicalCommandData);
+
+    undos.pushHistory(historicalData);
   }
 
   private void resetUndos() {

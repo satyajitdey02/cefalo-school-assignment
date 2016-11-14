@@ -24,11 +24,11 @@ public class Void<T extends Entity> extends Command<T> {
 
   @Override
   public void undo(T t) {
-    throw new UnsupportedOperationException("Undo is not supported from NO command.");
+    System.out.println("Nothing to Undo.");
   }
 
   @Override
   public void redo(T t) {
-    throw new UnsupportedOperationException("Redo is not supported from NO command.");
+    System.out.println("Nothing to Redo.");
   }
 }
