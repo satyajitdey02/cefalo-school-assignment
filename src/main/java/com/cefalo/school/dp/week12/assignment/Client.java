@@ -24,9 +24,9 @@ public class Client {
     databaseManager.saveRecord(new Entity("Brian Greene"));
     databaseManager.saveRecord(new Entity("Michio Kaku"));
     databaseManager.saveRecord(new Entity("Satyajit Dey"));
-    printRecords("Save");
+    printRecords("Four entities saved");
 
-    Entity recordToUpdate = new Entity(records.get(1));
+    Entity recordToUpdate = new Entity(records.get(1));//Copy constructor to clone Entity Object
     recordToUpdate.setValue(recordToUpdate.getValue() + "-The Legend");
     Command updateCommand = new Update(dao);
     databaseManager.setCommand(updateCommand);
