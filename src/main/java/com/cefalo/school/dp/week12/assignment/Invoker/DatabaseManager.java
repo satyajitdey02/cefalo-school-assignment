@@ -1,6 +1,6 @@
 package com.cefalo.school.dp.week12.assignment.Invoker;
 
-import com.cefalo.school.dp.week12.assignment.command.*;
+import com.cefalo.school.dp.week12.assignment.command.Command;
 import com.cefalo.school.dp.week12.assignment.command.Void;
 import com.cefalo.school.dp.week12.assignment.entity.Entity;
 import com.cefalo.school.dp.week12.assignment.history.HistoricalData;
