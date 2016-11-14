@@ -1,4 +1,4 @@
-package com.cefalo.school.dp;
+package com.cefalo.school.dp.week01.assignment;
 
 import com.cefalo.school.dp.week01.assignment.cli.CommandLineInterpreter;
 import com.cefalo.school.dp.week01.assignment.exception.CliException;
