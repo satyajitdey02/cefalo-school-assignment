@@ -17,8 +17,8 @@ public class DatabaseManager<T extends Entity> {
   private Command<T> command;
   private Command<T> noCommand = new Void<T>();
 
-  private History<T> undos = new History<T>();
-  private History<T> redos = new History<T>();
+  private final History<T> undos = new History<T>();
+  private final History<T> redos = new History<T>();
 
   public DatabaseManager() {
     resetUndos();

@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class DAO<T extends Entity> {
 
-  private Map<Integer, T> entities = new HashMap<Integer, T>();
+  private final Map<Integer, T> entities = new HashMap<Integer, T>();
 
   public T save(T t) {
     t.setId(entities.size() + 1);
