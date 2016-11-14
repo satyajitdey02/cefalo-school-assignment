@@ -64,30 +64,48 @@ public class DatabaseManager<T extends Entity> {
   }
 
   public void undoOperation() {
-    if (undos.empty()) {
-      resetUndos();
+    HistoricalData<T> historicalData = undos.pop();
+    if (historicalData == null) {
+      return;
     }
 
-    HistoricalData<T> historicalData = undos.pop();
     T historicalCommandData = historicalData.getT();
+    if(historicalCommandData == null) {
+      return;
+    }
 
     Command<T> historicalCommand = historicalData.getCommand();
+    if(historicalData.getCommand() == null) {
+      return;
+    }
+
+    T currentData = this.command.getDao().find().get(historicalCommandData.getId());
     historicalCommand.undo(historicalCommandData);
 
+    historicalData.setT(currentData);
     redos.pushHistory(historicalData);
   }
 
   public void redoOperation() {
-    if (redos.empty()) {
-      resetRedos();
+    HistoricalData<T> historicalData = redos.pop();
+    if (historicalData == null) {
+      return;
     }
 
-    HistoricalData<T> historicalData = redos.pop();
     T historicalCommandData = historicalData.getT();
+    if(historicalCommandData == null) {
+      return;
+    }
 
     Command<T> historicalCommand = historicalData.getCommand();
+    if(historicalData.getCommand() == null) {
+      return;
+    }
+
+    T currentData = this.command.getDao().find().get(historicalCommandData.getId());
     historicalCommand.redo(historicalCommandData);
 
+    historicalData.setT(currentData);
     undos.pushHistory(historicalData);
   }
 
