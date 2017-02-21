@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week05.practice.book.headfirst;
+package com.cefalo.school.dp.composite.pattern.practice.headfirst;
 
 /**
  * Created by satyajit on 9/30/2016.
