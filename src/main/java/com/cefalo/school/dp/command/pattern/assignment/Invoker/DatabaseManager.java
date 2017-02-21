@@ -1,10 +1,10 @@
-package com.cefalo.school.dp.week12.assignment.Invoker;
+package com.cefalo.school.dp.command.pattern.assignment.Invoker;
 
-import com.cefalo.school.dp.week12.assignment.command.Command;
-import com.cefalo.school.dp.week12.assignment.command.Void;
-import com.cefalo.school.dp.week12.assignment.entity.Entity;
-import com.cefalo.school.dp.week12.assignment.history.HistoricalData;
-import com.cefalo.school.dp.week12.assignment.history.History;
+import com.cefalo.school.dp.command.pattern.assignment.command.Command;
+import com.cefalo.school.dp.command.pattern.assignment.command.Void;
+import com.cefalo.school.dp.command.pattern.assignment.entity.Entity;
+import com.cefalo.school.dp.command.pattern.assignment.history.HistoricalData;
+import com.cefalo.school.dp.command.pattern.assignment.history.History;
 
 import java.util.Map;
 

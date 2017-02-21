@@ -1,6 +1,6 @@
-package com.cefalo.school.dp.week12.assignment.command;
+package com.cefalo.school.dp.command.pattern.assignment.command;
 
-import com.cefalo.school.dp.week12.assignment.entity.Entity;
+import com.cefalo.school.dp.command.pattern.assignment.entity.Entity;
 
 import java.util.Map;
 

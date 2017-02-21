@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week12.assignment.entity;
+package com.cefalo.school.dp.command.pattern.assignment.entity;
 
 /**
  * Created by satyajit on 11/11/16.

@@ -1,9 +1,9 @@
-package com.cefalo.school.dp.week12.assignment;
+package com.cefalo.school.dp.command.pattern.assignment;
 
-import com.cefalo.school.dp.week12.assignment.Invoker.DatabaseManager;
-import com.cefalo.school.dp.week12.assignment.command.*;
-import com.cefalo.school.dp.week12.assignment.entity.Entity;
-import com.cefalo.school.dp.week12.assignment.receiver.DAO;
+import com.cefalo.school.dp.command.pattern.assignment.Invoker.DatabaseManager;
+import com.cefalo.school.dp.command.pattern.assignment.command.*;
+import com.cefalo.school.dp.command.pattern.assignment.entity.Entity;
+import com.cefalo.school.dp.command.pattern.assignment.receiver.DAO;
 
 import java.util.Map;
 

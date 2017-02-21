@@ -1,7 +1,7 @@
-package com.cefalo.school.dp.week12.assignment.history;
+package com.cefalo.school.dp.command.pattern.assignment.history;
 
-import com.cefalo.school.dp.week12.assignment.command.Command;
-import com.cefalo.school.dp.week12.assignment.entity.Entity;
+import com.cefalo.school.dp.command.pattern.assignment.command.Command;
+import com.cefalo.school.dp.command.pattern.assignment.entity.Entity;
 
 /**
  * Created by satyajit on 11/12/16.
