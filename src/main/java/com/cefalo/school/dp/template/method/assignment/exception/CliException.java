@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week01.assignment.exception;
+package com.cefalo.school.dp.template.method.assignment.exception;
 
 /**
  * Created by satyajit on 9/22/2016.

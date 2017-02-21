@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week01.practice;
+package com.cefalo.school.dp.template.method.practice;
 
 /**
  * Created by satyajit on 11/14/16.

@@ -1,6 +1,6 @@
-package com.cefalo.school.dp.week01.assignment.cli;
+package com.cefalo.school.dp.template.method.assignment.cli;
 
-import com.cefalo.school.dp.week01.assignment.exception.CliException;
+import com.cefalo.school.dp.template.method.assignment.exception.CliException;
 import org.apache.commons.lang3.StringUtils;
 
 /**

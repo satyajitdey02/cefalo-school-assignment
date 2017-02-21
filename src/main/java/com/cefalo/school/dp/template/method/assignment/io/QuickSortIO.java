@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week01.assignment.io;
+package com.cefalo.school.dp.template.method.assignment.io;
 
 /**
  * Created by satyajit on 9/22/2016.

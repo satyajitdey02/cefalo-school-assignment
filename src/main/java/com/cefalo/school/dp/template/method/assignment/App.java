@@ -1,13 +1,13 @@
-package com.cefalo.school.dp.week01.assignment;
+package com.cefalo.school.dp.template.method.assignment;
 
-import com.cefalo.school.dp.week01.assignment.cli.CommandLineInterpreter;
-import com.cefalo.school.dp.week01.assignment.exception.CliException;
-import com.cefalo.school.dp.week01.assignment.io.Input;
-import com.cefalo.school.dp.week01.assignment.io.MergeSortIO;
-import com.cefalo.school.dp.week01.assignment.io.QuickSortIO;
-import com.cefalo.school.dp.week01.assignment.sort.DQAlgorithm;
-import com.cefalo.school.dp.week01.assignment.sort.MergeSort;
-import com.cefalo.school.dp.week01.assignment.sort.QuickSort;
+import com.cefalo.school.dp.template.method.assignment.cli.CommandLineInterpreter;
+import com.cefalo.school.dp.template.method.assignment.exception.CliException;
+import com.cefalo.school.dp.template.method.assignment.io.Input;
+import com.cefalo.school.dp.template.method.assignment.io.MergeSortIO;
+import com.cefalo.school.dp.template.method.assignment.io.QuickSortIO;
+import com.cefalo.school.dp.template.method.assignment.sort.DQAlgorithm;
+import com.cefalo.school.dp.template.method.assignment.sort.MergeSort;
+import com.cefalo.school.dp.template.method.assignment.sort.QuickSort;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
