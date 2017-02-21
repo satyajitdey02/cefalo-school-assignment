@@ -1,19 +1,19 @@
-package com.cefalo.school.dp.week03.assignment;
+package com.cefalo.school.dp.command.pattern.assignment;
 
 /**
  * Created by satyajit on 10/6/2016.
  */
-public class FinalDelivery implements Delivery {
+public class SecondDelivery implements Delivery {
   @Override
   public void nextDelivery(OverCounter counter, DeliveryType deliveryType) {
     if (DeliveryValidator.isValid(deliveryType)) {
-      System.out.println("Over Finished!");
-      counter.setDelivery(new FirstDelivery());
+      System.out.println("Second Ball Finished!");
+      counter.setDelivery(new ThirdDelivery());
       return;
     }
 
-    counter.setDelivery(this);
     System.out.println(deliveryType.getValue() + " Ball!");
+    counter.setDelivery(this);
 
   }
 }
