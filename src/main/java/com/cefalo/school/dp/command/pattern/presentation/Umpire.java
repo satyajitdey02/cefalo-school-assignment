@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.command.pattern.assignment;
+package com.cefalo.school.dp.command.pattern.presentation;
 
 import org.apache.commons.lang3.StringUtils;
 
