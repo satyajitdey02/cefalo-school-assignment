@@ -1,10 +1,10 @@
 package com.cefalo.school.dp.builder.pattern.assignment.builder;
 
-import com.cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Foundation;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Roof;
 import com.cefalo.school.dp.builder.pattern.assignment.component.complex.House;
 import com.cefalo.school.dp.builder.pattern.assignment.component.decoration.HouseUtilities;
+import com.cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
 import com.cefalo.school.dp.builder.pattern.assignment.director.StoreyBuilderDirector;
 
 /**

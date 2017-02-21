@@ -1,7 +1,7 @@
 package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import com.cefalo.school.dp.composite.pattern.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

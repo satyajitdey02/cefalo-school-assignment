@@ -1,7 +1,5 @@
 package com.cefalo.school.dp.observer.pattern.practice.headfirst;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Observable;
 
 /**

@@ -1,7 +1,7 @@
 package com.cefalo.school.dp.decorator.pattern.assignment.decorator;
 
-import com.cefalo.school.dp.decorator.pattern.assignment.shape.Shape;
 import com.cefalo.school.dp.decorator.pattern.assignment.shape.Point;
+import com.cefalo.school.dp.decorator.pattern.assignment.shape.Shape;
 import com.cefalo.school.dp.decorator.pattern.assignment.utils.GeometryUtils;
 
 import java.util.List;

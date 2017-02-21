@@ -1,7 +1,7 @@
 package com.cefalo.school.dp.builder.pattern.assignment.director;
 
-import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Wall;
 import com.cefalo.school.dp.builder.pattern.assignment.builder.WallBuilder;
+import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Wall;
 
 /**
  * Created by satyajit on 11/8/16.

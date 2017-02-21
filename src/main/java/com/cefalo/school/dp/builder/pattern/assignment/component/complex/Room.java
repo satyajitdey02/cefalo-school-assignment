@@ -1,12 +1,12 @@
 package com.cefalo.school.dp.builder.pattern.assignment.component.complex;
 
 import com.cefalo.school.dp.builder.pattern.assignment.component.Buildable;
+import com.cefalo.school.dp.builder.pattern.assignment.component.Component;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Ceiling;
+import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Column;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Floor;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Wall;
 import com.cefalo.school.dp.builder.pattern.assignment.exception.WrongArchitectureException;
-import com.cefalo.school.dp.builder.pattern.assignment.component.Component;
-import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Column;
 
 import java.util.ArrayList;
 import java.util.List;

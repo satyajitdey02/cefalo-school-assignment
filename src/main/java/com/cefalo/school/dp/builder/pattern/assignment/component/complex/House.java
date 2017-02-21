@@ -3,11 +3,11 @@ package com.cefalo.school.dp.builder.pattern.assignment.component.complex;
 import com.cefalo.school.dp.builder.pattern.assignment.component.Buildable;
 import com.cefalo.school.dp.builder.pattern.assignment.component.Component;
 import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Foundation;
+import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Roof;
 import com.cefalo.school.dp.builder.pattern.assignment.component.decoration.GardenLandscape;
 import com.cefalo.school.dp.builder.pattern.assignment.component.decoration.HouseUtilities;
 import com.cefalo.school.dp.builder.pattern.assignment.component.decoration.Interior;
 import com.cefalo.school.dp.builder.pattern.assignment.exception.WrongArchitectureException;
-import com.cefalo.school.dp.builder.pattern.assignment.component.basic.Roof;
 
 import java.util.ArrayList;
 import java.util.List;
