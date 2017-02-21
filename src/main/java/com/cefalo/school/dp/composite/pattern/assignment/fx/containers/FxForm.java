@@ -1,11 +1,13 @@
-package com.cefalo.school.dp.week04.assignment.fx.containers;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.containers;
 
-import com.cefalo.school.dp.week04.assignment.fx.controls.FxComponent;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationStatus;
-import javafx.geometry.Insets;
+import com.cefalo.school.dp.composite.pattern.assignment.fx.controls.FxComponent;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationStatus;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +15,20 @@ import java.util.List;
 /**
  * Created by satyajit on 10/22/16.
  */
-public class FxFieldGroup extends VBox implements FxComponent {
+public class FxForm extends VBox implements FxComponent {
   List<FxComponent> components = new ArrayList<FxComponent>();
+
+  private FxForm() {
+
+  }
+
+  public FxForm(String title) {
+    setDefaultConfigs(title);
+  }
 
   public void add(FxComponent component) {
     this.components.add(component);
     getChildren().add((Node) component);
-
-    setDefaultConfigs();
   }
 
   public void remove(FxComponent component) {
@@ -45,9 +53,9 @@ public class FxFieldGroup extends VBox implements FxComponent {
     return response;
   }
 
-  private void setDefaultConfigs() {
-    setStyle("-fx-border-color: black;");
-    setPadding(new Insets(10, 10, 10, 10));
-    setSpacing(5);
+  private void setDefaultConfigs(String formTitle) {
+    setStyle("-fx-background-color: ghostwhite; -fx-padding: 5; -fx-spacing: 10;-fx-alignment: center");
+    Text txtTitle = new Text(formTitle);
+    txtTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
   }
 }

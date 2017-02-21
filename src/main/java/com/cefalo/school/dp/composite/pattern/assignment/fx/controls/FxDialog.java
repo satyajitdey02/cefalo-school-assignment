@@ -1,7 +1,7 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationStatus;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationStatus;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;

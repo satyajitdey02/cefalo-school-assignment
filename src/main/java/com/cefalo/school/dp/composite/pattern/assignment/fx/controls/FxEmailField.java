@@ -1,34 +1,34 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationStatus;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
  * Created by satyajit on 10/23/16.
  */
-public class FxCheckBox extends HBox implements FxComponent {
+public class FxEmailField extends HBox implements FxComponent {
   private Label label;
-  private CheckBox checkBox;
+  private TextField textField;
 
-  private FxCheckBox() {
+  private FxEmailField() {
 
   }
 
-  public FxCheckBox(String labelText) {
+  public FxEmailField(String labelText) {
     this.label = new Label(labelText);
-    this.checkBox = new CheckBox();
-    getChildren().addAll(this.label, this.checkBox);
+    this.textField = new TextField();
+    getChildren().addAll(this.label, this.textField);
 
     setDefaultConfigs();
   }
 
-  public boolean isSelected() {
-    return this.checkBox.isSelected();
+  public String getEmail() {
+    return this.textField.getText();
   }
 
   public void add(FxComponent component) {
@@ -44,13 +44,16 @@ public class FxCheckBox extends HBox implements FxComponent {
   }
 
   public ValidationResponse validate() {
-    return new ValidationResponse(ValidationStatus.SUCCESS);
+    return FieldValidator.validateEmail(this.label.getText(), this.textField.getText());
   }
 
   private void setDefaultConfigs() {
     setSpacing(5);
     setAlignment(Pos.CENTER_LEFT);
     setPadding(new Insets(5, 5, 5, 5));
+
+    this.textField.setPrefSize(250, 30);
+    this.textField.setStyle("-fx-font-size: 15pt;");
 
     this.label.setStyle("-fx-font-size: 15pt;");
   }

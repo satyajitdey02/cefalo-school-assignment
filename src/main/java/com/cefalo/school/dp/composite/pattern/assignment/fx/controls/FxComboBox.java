@@ -1,8 +1,8 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.fx.models.FxComboItem;
-import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.fx.domain.FxComboItem;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.FieldValidator;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

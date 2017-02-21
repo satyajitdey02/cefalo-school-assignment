@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week04.practice.self;
+package com.cefalo.school.dp.composite.pattern.practice.self;
 
 import java.util.ArrayList;
 import java.util.List;

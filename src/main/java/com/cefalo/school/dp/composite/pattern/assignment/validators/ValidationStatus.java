@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week04.assignment.validators;
+package com.cefalo.school.dp.composite.pattern.assignment.validators;
 
 /**
  * Created by satyajit on 10/24/2016.

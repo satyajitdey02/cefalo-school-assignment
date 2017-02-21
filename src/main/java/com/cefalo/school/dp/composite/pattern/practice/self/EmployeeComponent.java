@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week04.practice.self;
+package com.cefalo.school.dp.composite.pattern.practice.self;
 
 /**
  * Created by satyajit on 10/1/16.

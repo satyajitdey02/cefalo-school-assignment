@@ -1,7 +1,7 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.FieldValidator;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;

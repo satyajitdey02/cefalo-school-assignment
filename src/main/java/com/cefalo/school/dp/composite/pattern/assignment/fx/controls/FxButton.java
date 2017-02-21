@@ -1,4 +1,4 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -1,34 +1,34 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationStatus;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- * Created by satyajit on 10/22/16.
+ * Created by satyajit on 10/23/16.
  */
-public class FxTextField extends HBox implements FxComponent {
+public class FxCheckBox extends HBox implements FxComponent {
   private Label label;
-  private TextField textField;
+  private CheckBox checkBox;
 
-  private FxTextField() {
+  private FxCheckBox() {
 
   }
 
-  public FxTextField(String labelText) {
+  public FxCheckBox(String labelText) {
     this.label = new Label(labelText);
-    this.textField = new TextField();
-    getChildren().addAll(this.label, this.textField);
+    this.checkBox = new CheckBox();
+    getChildren().addAll(this.label, this.checkBox);
 
     setDefaultConfigs();
   }
 
-  public String getText() {
-    return this.textField.getText();
+  public boolean isSelected() {
+    return this.checkBox.isSelected();
   }
 
   public void add(FxComponent component) {
@@ -44,16 +44,13 @@ public class FxTextField extends HBox implements FxComponent {
   }
 
   public ValidationResponse validate() {
-    return FieldValidator.checkForEmptyField(this.label.getText(), this.textField.getText());
+    return new ValidationResponse(ValidationStatus.SUCCESS);
   }
 
   private void setDefaultConfigs() {
     setSpacing(5);
     setAlignment(Pos.CENTER_LEFT);
     setPadding(new Insets(5, 5, 5, 5));
-
-    this.textField.setPrefSize(250, 30);
-    this.textField.setStyle("-fx-font-size: 15pt;");
 
     this.label.setStyle("-fx-font-size: 15pt;");
   }

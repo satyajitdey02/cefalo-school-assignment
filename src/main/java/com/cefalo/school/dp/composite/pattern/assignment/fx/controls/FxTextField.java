@@ -1,7 +1,7 @@
-package com.cefalo.school.dp.week04.assignment.fx.controls;
+package com.cefalo.school.dp.composite.pattern.assignment.fx.controls;
 
-import com.cefalo.school.dp.week04.assignment.validators.FieldValidator;
-import com.cefalo.school.dp.week04.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
+import com.cefalo.school.dp.composite.pattern.assignment.validators.FieldValidator;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -9,17 +9,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- * Created by satyajit on 10/23/16.
+ * Created by satyajit on 10/22/16.
  */
-public class FxEmailField extends HBox implements FxComponent {
+public class FxTextField extends HBox implements FxComponent {
   private Label label;
   private TextField textField;
 
-  private FxEmailField() {
+  private FxTextField() {
 
   }
 
-  public FxEmailField(String labelText) {
+  public FxTextField(String labelText) {
     this.label = new Label(labelText);
     this.textField = new TextField();
     getChildren().addAll(this.label, this.textField);
@@ -27,7 +27,7 @@ public class FxEmailField extends HBox implements FxComponent {
     setDefaultConfigs();
   }
 
-  public String getEmail() {
+  public String getText() {
     return this.textField.getText();
   }
 
@@ -44,7 +44,7 @@ public class FxEmailField extends HBox implements FxComponent {
   }
 
   public ValidationResponse validate() {
-    return FieldValidator.validateEmail(this.label.getText(), this.textField.getText());
+    return FieldValidator.checkForEmptyField(this.label.getText(), this.textField.getText());
   }
 
   private void setDefaultConfigs() {
