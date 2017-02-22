@@ -8,15 +8,13 @@ import java.util.Scanner;
  * Created by satyajit on 10/6/2016.
  */
 public class Umpire {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     printBanner();
     /*Init the Over Counter*/
     OverCounter counter = new OverCounter();
-
-    do {
-      //System.out.print("INPUT: ");
-      try {
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+    try {
+      while (scanner.hasNext()) {
         String input = scanner.nextLine();
         if (StringUtils.isNotBlank(input)) {
           DeliveryType deliveryType = DeliveryType.fromString(input.trim());
@@ -24,13 +22,15 @@ public class Umpire {
             System.out.println(input + " is not a valid INPUT");
             continue;
           }
-
           counter.count(deliveryType);
         }
-      } catch (Exception exp) {
-        exp.printStackTrace();
       }
-    } while (true);
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      scanner.close();
+    }
+
   }
 
   private static void printBanner() {
