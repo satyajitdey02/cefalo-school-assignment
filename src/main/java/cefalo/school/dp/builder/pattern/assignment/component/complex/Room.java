@@ -1,10 +1,10 @@
 package cefalo.school.dp.builder.pattern.assignment.component.complex;
 
-import cefalo.school.dp.builder.pattern.assignment.component.basic.Floor;
 import cefalo.school.dp.builder.pattern.assignment.component.Buildable;
 import cefalo.school.dp.builder.pattern.assignment.component.Component;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Ceiling;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Column;
+import cefalo.school.dp.builder.pattern.assignment.component.basic.Floor;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Wall;
 import cefalo.school.dp.builder.pattern.assignment.exception.WrongArchitectureException;
 

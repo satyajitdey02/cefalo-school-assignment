@@ -1,9 +1,9 @@
 package cefalo.school.dp.builder.pattern.assignment.builder;
 
-import cefalo.school.dp.builder.pattern.assignment.component.decoration.GardenLandscape;
-import cefalo.school.dp.builder.pattern.assignment.component.decoration.Interior;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Fence;
 import cefalo.school.dp.builder.pattern.assignment.component.complex.House;
+import cefalo.school.dp.builder.pattern.assignment.component.decoration.GardenLandscape;
+import cefalo.school.dp.builder.pattern.assignment.component.decoration.Interior;
 import cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
 
 /**

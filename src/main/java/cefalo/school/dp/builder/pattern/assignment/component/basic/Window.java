@@ -1,10 +1,10 @@
 package cefalo.school.dp.builder.pattern.assignment.component.basic;
 
+import cefalo.school.dp.builder.pattern.assignment.component.Buildable;
 import cefalo.school.dp.builder.pattern.assignment.component.Component;
+import cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
 import cefalo.school.dp.builder.pattern.assignment.component.measurement.MeasurementValidator;
 import cefalo.school.dp.builder.pattern.assignment.exception.WrongArchitectureException;
-import cefalo.school.dp.builder.pattern.assignment.component.Buildable;
-import cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
 import org.apache.commons.lang3.StringUtils;
 
 /**

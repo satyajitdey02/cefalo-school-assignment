@@ -1,9 +1,9 @@
 package cefalo.school.dp.command.pattern.assignment.Invoker;
 
+import cefalo.school.dp.command.pattern.assignment.command.Command;
 import cefalo.school.dp.command.pattern.assignment.entity.Entity;
 import cefalo.school.dp.command.pattern.assignment.history.HistoricalData;
 import cefalo.school.dp.command.pattern.assignment.history.History;
-import cefalo.school.dp.command.pattern.assignment.command.Command;
 
 import java.util.Map;
 

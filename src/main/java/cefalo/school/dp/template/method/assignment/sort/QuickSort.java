@@ -1,8 +1,8 @@
 package cefalo.school.dp.template.method.assignment.sort;
 
-import cefalo.school.dp.template.method.assignment.io.QuickSortIO;
 import cefalo.school.dp.template.method.assignment.io.Input;
 import cefalo.school.dp.template.method.assignment.io.Output;
+import cefalo.school.dp.template.method.assignment.io.QuickSortIO;
 
 /**
  * Created by satyajit on 9/22/2016.

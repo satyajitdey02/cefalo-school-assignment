@@ -1,10 +1,10 @@
 package cefalo.school.dp.composite.pattern.assignment;
 
-import cefalo.school.dp.composite.pattern.assignment.fx.controls.*;
-import cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import cefalo.school.dp.composite.pattern.assignment.fx.containers.FxFieldGroup;
 import cefalo.school.dp.composite.pattern.assignment.fx.containers.FxForm;
+import cefalo.school.dp.composite.pattern.assignment.fx.controls.*;
 import cefalo.school.dp.composite.pattern.assignment.fx.domain.FxComboItem;
+import cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

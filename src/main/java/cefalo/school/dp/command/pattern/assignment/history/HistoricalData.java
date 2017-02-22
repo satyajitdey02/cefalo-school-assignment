@@ -1,7 +1,7 @@
 package cefalo.school.dp.command.pattern.assignment.history;
 
-import cefalo.school.dp.command.pattern.assignment.entity.Entity;
 import cefalo.school.dp.command.pattern.assignment.command.Command;
+import cefalo.school.dp.command.pattern.assignment.entity.Entity;
 
 /**
  * Created by satyajit on 11/12/16.

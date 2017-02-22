@@ -1,8 +1,8 @@
 package cefalo.school.dp.composite.pattern.assignment.fx.containers;
 
+import cefalo.school.dp.composite.pattern.assignment.fx.controls.FxComponent;
 import cefalo.school.dp.composite.pattern.assignment.validators.ValidationResponse;
 import cefalo.school.dp.composite.pattern.assignment.validators.ValidationStatus;
-import cefalo.school.dp.composite.pattern.assignment.fx.controls.FxComponent;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;

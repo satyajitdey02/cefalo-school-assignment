@@ -1,12 +1,12 @@
 package cefalo.school.dp.builder.pattern.assignment.component.complex;
 
-import cefalo.school.dp.builder.pattern.assignment.component.decoration.GardenLandscape;
 import cefalo.school.dp.builder.pattern.assignment.component.Buildable;
 import cefalo.school.dp.builder.pattern.assignment.component.Component;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Foundation;
-import cefalo.school.dp.builder.pattern.assignment.component.decoration.Interior;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Roof;
+import cefalo.school.dp.builder.pattern.assignment.component.decoration.GardenLandscape;
 import cefalo.school.dp.builder.pattern.assignment.component.decoration.HouseUtilities;
+import cefalo.school.dp.builder.pattern.assignment.component.decoration.Interior;
 import cefalo.school.dp.builder.pattern.assignment.exception.WrongArchitectureException;
 
 import java.util.ArrayList;

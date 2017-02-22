@@ -1,8 +1,8 @@
 package cefalo.school.dp.builder.pattern.assignment.builder;
 
+import cefalo.school.dp.builder.pattern.assignment.component.basic.Door;
 import cefalo.school.dp.builder.pattern.assignment.component.basic.Wall;
 import cefalo.school.dp.builder.pattern.assignment.component.measurement.Dimensions;
-import cefalo.school.dp.builder.pattern.assignment.component.basic.Door;
 
 /**
  * Created by satyajit on 11/7/16.
