@@ -17,7 +17,7 @@ public class Umpire {
       while (scanner.hasNext()) {
         String input = scanner.nextLine();
         if (StringUtils.isNotBlank(input)) {
-          DeliveryType deliveryType = DeliveryType.fromString(input.trim());
+          DeliveryType deliveryType = DeliveryType.fromString(input.trim().toUpperCase());
           if (deliveryType == null) {
             System.out.println(input + " is not a valid INPUT");
             continue;

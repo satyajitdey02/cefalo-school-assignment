@@ -10,14 +10,6 @@ public class OverCounter {
     this.delivery = new FirstDelivery();
   }
 
-  public OverCounter(Delivery delivery) {
-    this.delivery = delivery;
-  }
-
-  public Delivery getDelivery() {
-    return delivery;
-  }
-
   public void setDelivery(Delivery delivery) {
     this.delivery = delivery;
   }
